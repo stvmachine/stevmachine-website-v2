@@ -13,7 +13,10 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "LinkedIn", href: "https://www.linkedin.com/in/esteban-campos-valenzuela-338235b0/" },
+    {
+      text: "LinkedIn",
+      href: "https://www.linkedin.com/in/esteban-campos-valenzuela-338235b0/",
+    },
     { text: "Github", href: "https://github.com/stvmachine" },
     { text: "Email", href: "mailto:campos.esteban@gmail.com" },
   ],
@@ -103,69 +106,44 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
-      name: "Kaluza Platform",
-      summary: "Enabled the Kaluza platform to scale and onboard retailers for the Australian and New Zealand markets. Collaborated across multiple teams in the UK and Australia.",
-      linkPreview: "https://kaluza.com",
-      linkSource: "https://kaluza.com",
-      image: "/kaluza.png",
-    },
-    {
-      name: "AESOP System Upgrade",
-      summary: "Lead major upgrades for critical parts of the Aerup.com platform, involving significant updates to their monorepo based on NX, AWS, Apollo GraphQL, Typescript and NodeJS.",
-      linkPreview: "https://aesop.com",
-      linkSource: "https://aesop.com",
-      image: "/aesop.png",
-    },
-    {
       name: "Mindset Health - Nerva & Finito",
-      summary: "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
-      linkPreview: "https://nerva.com",
-      linkSource: "https://nerva.com",
-      image: "/nerva.png",
-    },
-    {
-      name: "Nura - System Backend Upgrade",
-      summary: "Migration and scaling of their legacy backend platform based on Ruby on Rails. Performed major refactoring and updated internal and third-party libraries to follow best practices.",
-      linkPreview: "https://nura.com",
-      linkSource: "https://nura.com",
-      image: "/nura.png",
+      summary:
+        "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
+      linkPreview: "https://www.nervahealth.com/",
+      linkSource: "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
+      image: "/nerva.webp",
     },
     {
       name: "Good on You - Mobile App and Website",
-      summary: "Revamped Good On You mobile app and website for ethical fashion ratings.",
+      summary:
+        "Revamped Good On You mobile app and website for ethical fashion ratings.",
       linkPreview: "https://directory.goodonyou.eco/",
-      linkSource: "https://directory.goodonyou.eco/",
+      linkSource: "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       image: "/goodonyou-directory.png",
     },
     {
-      name: "MyNous - Livestock Sales App",
-      summary: "Built an internal Progressive Web Application to count and monitor livestock sales stock and manage sales efficiently. Special focus on offline capabilities and data conflict management.",
-      linkPreview: "https://agrinous.com",
-      linkSource: "https://agrinous.com",
-      image: "/mynous.png",
-    },
-    {
       name: "VicSuper Mobile App",
-      summary: "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
+      summary:
+        "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       linkSource: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       image: "/vicsuper-mobile-app.png",
     },
     {
       name: "Banco de Chile Apps",
-      summary: "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
-      linkPreview: "https://play.google.com/store/apps/details?id=cl.bancochile.mbanking&hl=es_419",
-      linkSource: "https://play.google.com/store/apps/details?id=cl.bancochile.mbanking&hl=es_419",
+      summary:
+        "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
+      linkPreview:
+        "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
+      linkSource:
+        "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       image: "/bancodechile-mobile.png",
     },
   ],
   about: {
     description: `
-      Hi, I'm Esteban Campos, a Senior Software Developer at Ackama with over 7 years of experience in full-stack development. I specialize in React, React Native, TypeScript, Ruby on Rails, and cloud infrastructure on AWS.
-
-      I act as a technical domain expert in projects, including infrastructure (AWS & third-party services), and mentor junior and mid-level developers to drive technical excellence and team collaboration. I've worked with notable clients including Kaluza, Mindset Health, AESOP, Nura, Good on You, Agronius and Ynomia.
-
-      Over the years, I've honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what's possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability. I also have a keen interest in board games, choirs, and my dog Balu.
+      Senior Software Developer at Ackama with 10+ years building scalable applications. I specialize in React, TypeScript, Ruby on Rails, and AWS cloud infrastructure.
+      When I'm not coding, you'll find me playing board games, singing in choirs, or hanging out with my dog Balu.
     `,
     image: "/profilepic.jpg",
   },

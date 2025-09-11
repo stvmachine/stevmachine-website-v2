@@ -29,7 +29,7 @@ cd astro-zen
 
 | Command        | Action                                       |
 | :------------- | :------------------------------------------- |
-| `pnpm install` | Installs dependencies                        |
-| `pnpm dev`     | Starts local dev server at `localhost:4321`  |
-| `pnpm build`   | Build your production site to `./dist/`      |
-| `pnpm preview` | Preview your build locally, before deploying |
+| `npm install` | Installs dependencies                        |
+| `npm dev`     | Starts local dev server at `localhost:4321`  |
+| `npm build`   | Build your production site to `./dist/`      |
+| `npm preview` | Preview your build locally, before deploying |
