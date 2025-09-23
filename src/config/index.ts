@@ -139,6 +139,32 @@ export const SITE_CONTENT: SiteContent = {
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       image: "/bancodechile-mobile.png",
     },
+    {
+      name: "Good on You - Mobile App",
+      summary:
+        "Implemented UI improvements and feature delivery across the iOS and Android apps. Focus on performance, UX polish, and release stability.",
+      linkPreview:
+        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      linkSource:
+        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      image: "/goodonyou-mobile.png",
+    },
+    {
+      name: "Tugeda – Marketing Website",
+      summary:
+        "Delivered a responsive, accessible marketing site with a performant build pipeline and a modular component system.",
+      linkPreview: "https://tugeda.com/",
+      linkSource: "https://tugeda.com/",
+      image: "/tugeda-website.png",
+    },
+    {
+      name: "My Portfolio Refresh",
+      summary:
+        "Astro + Tailwind redesign with accessible components, responsive grid, and optimized images for fast loads.",
+      linkPreview: "https://stevmachine.me",
+      linkSource: "https://stevmachine.me",
+      image: "/myportfolio.png",
+    },
   ],
   about: {
     description: `
