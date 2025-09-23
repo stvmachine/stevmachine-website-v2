@@ -19,89 +19,185 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
 ---
 
 <ProjectLayout>
-  <article>
-    <header class="mb-10 rounded-2xl border border-slate-200 bg-white">
-      <div class="grid gap-6 p-6 sm:grid-cols-2 sm:items-center sm:p-10">
-        <div>
-          <a href="/#projects" class="mb-4 inline-flex items-center text-sm text-slate-500 hover:text-slate-700">← Back to Projects</a>
-          <h1 class="mb-3 font-serif text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            {name}
-          </h1>
-          <p class="text-base leading-relaxed text-slate-700 mb-6">{summary}</p>
-          <div class="flex flex-wrap gap-3">
-            {linkPreview && (
-              <a
-                href={linkPreview}
-                target="_blank"
-                style={{ backgroundColor: accentColor }}
-                class="inline-flex items-center rounded-lg px-5 py-2 text-sm font-medium text-white transition-colors hover:opacity-90"
-                >Live Product</a
-              >
-            )}
-            {linkSource && (
-              <a
-                href={linkSource}
-                target="_blank"
-                class="inline-flex items-center rounded-lg border px-5 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
-                >Source Code</a
-              >
-            )}
+  <!-- Navigation Header -->
+  <nav class="mb-8 flex items-center justify-between border-b border-gray-800 pb-6">
+    <div class="flex items-center space-x-8">
+      <a href="/" class="text-2xl font-bold text-transparent bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text">
+        ✦ logo
+      </a>
+      <div class="hidden md:flex space-x-6">
+        <a href="/#hero" class="text-gray-300 hover:text-white transition-colors">Home</a>
+        <a href="/#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a>
+        <a href="/#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+        <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <button class="px-4 py-2 text-sm text-white bg-pink-600 hover:bg-pink-700 rounded-lg transition-colors">
+        Sign In
+      </button>
+      <button class="px-4 py-2 text-sm text-white bg-purple-600 hover:bg-purple-700 rounded-lg transition-colors">
+        Register
+      </button>
+    </div>
+  </nav>
+
+  <article class="space-y-12">
+    <!-- Project Header -->
+    <header class="relative">
+      <!-- Background with subtle pattern -->
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900/50 to-black/50 rounded-3xl"></div>
+      
+      <div class="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl border border-gray-700 overflow-hidden">
+        <!-- Back Navigation -->
+        <div class="p-6 border-b border-gray-700">
+          <a href="/#projects" class="inline-flex items-center text-sm text-gray-400 hover:text-white transition-colors">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Projects
+          </a>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 p-8">
+          <!-- Project Info -->
+          <div class="space-y-6">
+            <div>
+              <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                {name}
+              </h1>
+              <p class="text-lg text-gray-300 leading-relaxed">
+                {summary}
+              </p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-4 pt-4">
+              {linkPreview && (
+                <a
+                  href={linkPreview}
+                  target="_blank"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
+                >
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  Live Preview
+                </a>
+              )}
+              {linkSource && (
+                <a
+                  href={linkSource}
+                  target="_blank"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                  Source Code
+                </a>
+              )}
+            </div>
+          </div>
+
+          <!-- Project Image -->
+          <div class="relative">
+            <div class="relative overflow-hidden rounded-2xl border border-gray-600 shadow-2xl">
+              <img 
+                src={image} 
+                width="800" 
+                height="500" 
+                alt={name} 
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+            <!-- Accent color indicator -->
+            <div 
+              class="absolute -top-2 -right-2 w-6 h-6 rounded-full border-2 border-gray-800 shadow-lg"
+              style={`background-color: ${accentColor}`}
+            ></div>
           </div>
         </div>
-        <div class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
-          <img src={image} width="800" height="500" alt={name} class="h-full w-full object-cover" />
-        </div>
       </div>
-      <div class="h-1 w-28 rounded-r-full" style={{ backgroundColor: accentColor }}></div>
     </header>
 
-    <section class="grid gap-8 sm:grid-cols-2">
-      <div class="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 class="mb-3 text-xl font-semibold text-slate-900">Overview</h2>
-        <p class="text-slate-700 leading-relaxed">
-          This page is a brief overview for {name}. We can further expand with goals, impact, and your role. Provide me copy and I will fill it in.
-        </p>
+    <!-- Project Details -->
+    <section class="grid gap-8 lg:grid-cols-2">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 p-8">
+        <h2 class="mb-6 text-2xl font-semibold text-white">Project Overview</h2>
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>
+            {summary}
+          </p>
+          <p>
+            This project showcases modern web development practices with a focus on user experience, 
+            performance optimization, and scalable architecture. Built with cutting-edge technologies 
+            to deliver exceptional results.
+          </p>
+        </div>
       </div>
-      <div class="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 class="mb-3 text-xl font-semibold text-slate-900">Skills & Technologies</h2>
-        <div class="flex flex-wrap gap-2 text-sm">
-          <span class="rounded-full border px-3 py-1 text-slate-700">React</span>
-          <span class="rounded-full border px-3 py-1 text-slate-700">TypeScript</span>
-          <span class="rounded-full border px-3 py-1 text-slate-700">Astro</span>
-          <span class="rounded-full border px-3 py-1 text-slate-700">Tailwind</span>
+      
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 p-8">
+        <h2 class="mb-6 text-2xl font-semibold text-white">Technologies Used</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full border border-gray-600 transition-colors">React</span>
+          <span class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full border border-gray-600 transition-colors">TypeScript</span>
+          <span class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full border border-gray-600 transition-colors">Node.js</span>
+          <span class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full border border-gray-600 transition-colors">AWS</span>
+          <span class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full border border-gray-600 transition-colors">Tailwind CSS</span>
+          <span class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full border border-gray-600 transition-colors">PostgreSQL</span>
         </div>
       </div>
     </section>
 
-    <section class="mt-10">
-      <h2 class="mb-5 text-2xl font-semibold text-slate-900">Project Showcase</h2>
+    <!-- Project Showcase Gallery -->
+    <section class="space-y-8">
+      <div class="text-center">
+        <h2 class="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
+          Project Showcase
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+          Visual highlights and key features of the project
+        </p>
+      </div>
+
       {
         (() => {
           const items = SITE_CONTENT.projects
             .filter((p) => p.slug && p.slug !== project.slug)
             .slice(0, 6);
           return (
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {items.map((p) => (
-                <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 transition-all duration-300 hover:border-gray-600 hover:shadow-2xl hover:shadow-purple-500/10">
                   <a href={`/projects/${p.slug}`} aria-label={`${p.name} details`}>
-                    <div class="relative aspect-video w-full overflow-hidden">
+                    <div class="relative aspect-video overflow-hidden">
                       <img
                         src={p.image}
                         alt={p.name}
                         width="600"
                         height="350"
-                        class="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
+                        class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      
+                      <!-- Project accent color */}
+                      <div 
+                        class="absolute top-4 right-4 w-3 h-3 rounded-full"
+                        style={`background-color: ${p.accentColor || '#2563eb'}`}
+                      ></div>
                     </div>
                   </a>
-                  <div class="px-4 py-4">
-                    <h3 class="text-base font-semibold text-slate-900">
+                  <div class="p-6">
+                    <h3 class="text-lg font-semibold text-white group-hover:text-purple-300 transition-colors duration-300 mb-2">
                       <a href={`/projects/${p.slug}`} class="hover:underline">{p.name}</a>
                     </h3>
-                    <p class="mt-1 line-clamp-2 text-sm text-slate-700">{p.summary}</p>
+                    <p class="text-sm text-gray-300 leading-relaxed line-clamp-2">{p.summary}</p>
                   </div>
+                  
+                  <!-- Hover effect overlay -->}
+                  <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </article>
               ))}
             </div>
@@ -110,10 +206,36 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
       }
     </section>
 
-    <section class="mt-12 rounded-2xl border border-slate-200 bg-white p-8 text-center">
-      <h3 class="mb-3 text-xl font-semibold text-slate-900">Interested in more about {name}?</h3>
-      <p class="mb-6 text-slate-700">Check the links above or reach out and I can share more details.</p>
-      <a href="/#projects" class="inline-flex items-center rounded-lg border px-5 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50">Back to Projects</a>
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl border border-gray-700 p-12 text-center">
+      <div class="max-w-2xl mx-auto space-y-6">
+        <h3 class="text-3xl font-bold text-white">
+          Interested in {name}?
+        </h3>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          Want to learn more about this project or discuss similar work? I'd love to share more details about the development process and technical decisions.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 pt-4">
+          <a 
+            href="/#projects" 
+            class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Projects
+          </a>
+          <a 
+            href="mailto:campos.esteban@gmail.com" 
+            class="inline-flex items-center gap-2 px-8 py-4 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-full transition-all duration-300 hover:scale-105"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Get in Touch
+          </a>
+        </div>
+      </div>
     </section>
   </article>
 </ProjectLayout>

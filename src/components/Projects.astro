@@ -10,75 +10,122 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<Section text="Featured Projects" href="projects">
-  <div class="grid items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3">
-    {
-      projects.map(
-        ({ name, summary, image, linkPreview, linkSource, slug }) => (
-          <article class="flex h-full flex-col overflow-hidden rounded-2xl border border-neutral/20 bg-black bg-gradient-to-br from-[#1c232d]/90 to-[#0f1419]/90 backdrop-blur-sm">
-            <div class="relative h-56 w-full overflow-hidden">
-              {slug ? (
-                <a href={`/projects/${slug}`} aria-label={`${name} details`}>
-                  <Image
-                    class="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
-                    src={image}
-                    alt={name}
-                    width="600"
-                    height="350"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                </a>
-              ) : (
-                <>
-                  <Image
-                    class="h-full w-full object-cover object-center"
-                    src={image}
-                    alt={name}
-                    width="600"
-                    height="350"
-                    loading="lazy"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                </>
-              )}
-            </div>
-            <div class="flex h-full flex-col px-6 py-6">
-              <h3 class="mb-3 font-serif text-2xl font-medium text-primary">
+<section class="py-24 bg-black" id="projects">
+  <div class="mx-auto max-w-7xl px-5">
+    <div class="mb-16 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+        Featured Projects
+      </h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+        A showcase of my recent work and contributions
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map(
+          ({ name, summary, image, linkPreview, linkSource, slug, accentColor }) => (
+            <article class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 transition-all duration-300 hover:border-gray-600 hover:shadow-2xl hover:shadow-purple-500/10">
+              {/* Project Image */}
+              <div class="relative h-48 overflow-hidden">
                 {slug ? (
-                  <a href={`/projects/${slug}`} class="hover:underline">
-                    {name}
+                  <a href={`/projects/${slug}`} aria-label={`${name} details`}>
+                    <Image
+                      class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                      src={image}
+                      alt={name}
+                      width="600"
+                      height="350"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </a>
                 ) : (
-                  name
+                  <>
+                    <Image
+                      class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                      src={image}
+                      alt={name}
+                      width="600"
+                      height="350"
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  </>
                 )}
-              </h3>
-              <p class="mb-5 text-base leading-relaxed text-neutral">
-                {summary}
-              </p>
-              <div class="mt-auto flex flex-wrap gap-4 text-white">
-                {slug && (
-                  <a
-                    href={`/projects/${slug}`}
-                    class="group flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:bg-primary/90"
-                  >
-                    Details
-                  </a>
-                )}
-                {linkPreview && (
-                  <a
-                    href={linkPreview}
-                    target="_blank"
-                    class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 after:relative after:bottom-[-2px] after:transition-transform after:duration-200 after:content-[url(/external.svg)] group-hover:after:scale-110 hover:scale-105 hover:bg-primary/20"
-                  >
-                    Preview
-                  </a>
-                )}
+                
+                {/* Accent color indicator */}
+                <div 
+                  class="absolute top-4 right-4 w-3 h-3 rounded-full"
+                  style={`background-color: ${accentColor || '#2563eb'}`}
+                ></div>
               </div>
-            </div>
-          </article>
-        ),
-      )
-    }
+
+              {/* Project Content */}
+              <div class="p-6 space-y-4">
+                <h3 class="font-serif text-xl font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
+                  {slug ? (
+                    <a href={`/projects/${slug}`} class="hover:underline">
+                      {name}
+                    </a>
+                  ) : (
+                    name
+                  )}
+                </h3>
+                
+                <p class="text-sm text-gray-300 leading-relaxed line-clamp-3">
+                  {summary}
+                </p>
+
+                {/* Action Buttons */}
+                <div class="flex flex-wrap gap-3 pt-4">
+                  {linkSource && (
+                    <a
+                      href={linkSource}
+                      target="_blank"
+                      class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-200 hover:scale-105"
+                    >
+                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                      Source
+                    </a>
+                  )}
+                  
+                  {linkPreview && (
+                    <a
+                      href={linkPreview}
+                      target="_blank"
+                      class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-purple-600 hover:bg-purple-700 rounded-lg transition-all duration-200 hover:scale-105"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Preview
+                    </a>
+                  )}
+                </div>
+              </div>
+
+              {/* Hover effect overlay */}
+              <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </article>
+          ),
+        )
+      }
+    </div>
+
+    {/* View All Projects Link */}
+    <div class="text-center mt-12">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+      >
+        View All Projects
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
   </div>
-</Section>
+</section>
