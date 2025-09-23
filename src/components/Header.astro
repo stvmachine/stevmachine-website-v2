@@ -9,7 +9,7 @@ const { siteLogo, navLinks } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in items-center justify-between bg-page px-5 py-6"
 >
   <a href="/" aria-label="Home link">
     <Image
@@ -24,7 +24,7 @@ const { siteLogo, navLinks } = Astro.props;
   <button
     type="button"
     id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
+    class="px-1.5 text-muted sm:hidden"
     aria-expanded="false"
     aria-controls="main-menu"
   >
@@ -32,7 +32,7 @@ const { siteLogo, navLinks } = Astro.props;
   </button>
 
   <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+    class="absolute top-20 right-5 hidden rounded-xl border border-theme bg-page px-4 py-5 text-muted sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
     id="main-menu"
   >
     <ul class="gap-2 sm:flex">
@@ -40,7 +40,7 @@ const { siteLogo, navLinks } = Astro.props;
         navLinks.map((link) => (
           <li class="relative">
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-fg`}
               href={link.href}
             >
               {link.text}
@@ -50,6 +50,18 @@ const { siteLogo, navLinks } = Astro.props;
       }
     </ul>
   </nav>
+
+  <button id="theme-toggle" aria-pressed="false" class="group ml-3 inline-flex h-8 w-14 items-center rounded-full bg-slate-200 p-1 transition-all duration-300 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600">
+    <span class="sr-only">Toggle theme</span>
+    <div id="theme-thumb" class="flex h-6 w-6 translate-x-0 items-center justify-center rounded-full bg-white shadow-md transition-all duration-300 dark:bg-slate-800">
+      <svg id="sun-icon" class="h-4 w-4 text-amber-500 transition-all duration-300" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+      </svg>
+      <svg id="moon-icon" class="absolute h-4 w-4 text-slate-400 opacity-0 transition-all duration-300" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+    </div>
+  </button>
 </header>
 
 <script>
@@ -57,12 +69,47 @@ const { siteLogo, navLinks } = Astro.props;
   const button = document.querySelector("#menu-button");
   const menu = document.querySelector("#main-menu");
   const navItems = document.querySelectorAll("#main-menu > ul > li > a");
+  const themeBtn = document.querySelector('#theme-toggle');
+  const themeThumb = document.querySelector('#theme-thumb');
 
   const toggleMenu = () => {
     menu?.classList.toggle("hidden");
     const isHidden = menu?.classList.contains("hidden");
     button?.setAttribute("aria-expanded", `${!isHidden}`);
   };
+
+  // Theme toggle (premium pill)
+  const applyTheme = (t: string) => {
+    document.documentElement.setAttribute('data-theme', t);
+    const isDark = t === 'dark';
+    const sunIcon = document.querySelector('#sun-icon');
+    const moonIcon = document.querySelector('#moon-icon');
+    
+    themeBtn?.setAttribute('aria-pressed', String(isDark));
+    themeThumb?.classList.toggle('translate-x-6', !isDark);
+    themeThumb?.classList.toggle('translate-x-0', isDark);
+    
+    if (isDark) {
+      // Dark mode: show moon, hide sun
+      sunIcon?.classList.add('opacity-0', 'rotate-90');
+      sunIcon?.classList.remove('opacity-100', 'rotate-0');
+      moonIcon?.classList.add('opacity-100', 'rotate-0');
+      moonIcon?.classList.remove('opacity-0', 'rotate-90');
+    } else {
+      // Light mode: show sun, hide moon
+      sunIcon?.classList.add('opacity-100', 'rotate-0');
+      sunIcon?.classList.remove('opacity-0', 'rotate-90');
+      moonIcon?.classList.add('opacity-0', 'rotate-90');
+      moonIcon?.classList.remove('opacity-100', 'rotate-0');
+    }
+  };
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(current);
+  themeBtn?.addEventListener('click', () => {
+    const next = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
 
   button?.addEventListener("click", toggleMenu);
   navItems.forEach((item) => {
@@ -76,9 +123,9 @@ const { siteLogo, navLinks } = Astro.props;
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("href") === `#${entry.target.id}`) {
-              item.classList.add("text-white", "md:after:opacity-100");
+              item.classList.add("text-fg", "md:after:opacity-100");
             } else {
-              item.classList.remove("text-white", "md:after:opacity-100");
+              item.classList.remove("text-fg", "md:after:opacity-100");
             }
           });
         }
