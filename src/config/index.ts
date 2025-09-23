@@ -107,6 +107,8 @@ export const SITE_CONTENT: SiteContent = {
   projects: [
     {
       name: "Mindset Health - Nerva & Finito",
+      slug: "mindset-health",
+      accentColor: "#ec4899",
       summary:
         "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
       linkPreview: "https://www.nervahealth.com/",
@@ -115,6 +117,8 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "Good on You - Mobile App and Website",
+      slug: "good-on-you",
+      accentColor: "#22c55e",
       summary:
         "Revamped Good On You mobile app and website for ethical fashion ratings.",
       linkPreview: "https://directory.goodonyou.eco/",
@@ -123,6 +127,8 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "VicSuper Mobile App",
+      slug: "vicsuper-mobile-app",
+      accentColor: "#2563eb",
       summary:
         "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
@@ -131,6 +137,8 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "Banco de Chile Apps",
+      slug: "banco-de-chile-apps",
+      accentColor: "#0ea5e9",
       summary:
         "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
       linkPreview:
@@ -141,6 +149,8 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "Good on You - Mobile App",
+      slug: "good-on-you-mobile",
+      accentColor: "#16a34a",
       summary:
         "Implemented UI improvements and feature delivery across the iOS and Android apps. Focus on performance, UX polish, and release stability.",
       linkPreview:
@@ -151,6 +161,8 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "Tugeda – Marketing Website",
+      slug: "tugeda-website",
+      accentColor: "#f59e0b",
       summary:
         "Delivered a responsive, accessible marketing site with a performant build pipeline and a modular component system.",
       linkPreview: "https://tugeda.com/",
@@ -158,12 +170,14 @@ export const SITE_CONTENT: SiteContent = {
       image: "/tugeda-website.png",
     },
     {
-      name: "My Portfolio Refresh",
+      name: "Nura — Consumer Audio",
+      slug: "nura-consumer-audio",
+      accentColor: "#ef4444",
       summary:
-        "Astro + Tailwind redesign with accessible components, responsive grid, and optimized images for fast loads.",
-      linkPreview: "https://stevmachine.me",
-      linkSource: "https://stevmachine.me",
-      image: "/myportfolio.png",
+        "Contributed to product UI and feature delivery across mobile and web properties for the audio brand Nura, focusing on performance, accessibility, and polished user flows.",
+      linkPreview: "https://www.nurasound.com/",
+      linkSource: "https://www.nurasound.com/",
+      image: "/tugeda-website.png",
     },
   ],
   about: {
