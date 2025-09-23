@@ -11,53 +11,45 @@ const { projects } = Astro.props;
 ---
 
 <Section text="Featured Projects" href="projects">
-  {
-    projects.map(({ name, summary, image, linkPreview, linkSource }, index) => {
-      const top = 98 + index * 40;
-      return (
-        <div
-          style={`top: ${top}px;`}
-          class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
-        >
-          <div class="bg-difu relative z-[1] grid h-[600px] w-full grid-rows-2 rounded-2xl bg-gradient-to-br from-[#1c232d]/90 to-[#0f1419]/90 backdrop-blur-sm before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[3%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-[450px]">
-            <div class="flex flex-col justify-center px-6 py-8">
-              <h3 class="mb-5 font-serif text-3xl font-medium text-primary drop-shadow-lg">
-                {name}
-              </h3>
-              <p class="text-base text-neutral mb-6 leading-relaxed">{summary}</p>
-              <div class="flex gap-6 text-white">
-                <a
-                  href={linkSource}
-                  target="_blank"
-                  class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-primary/20 hover:scale-105 after:relative after:bottom-[-2px] after:content-[url(/external.svg)] after:transition-transform after:duration-200 group-hover:after:scale-110"
-                >
-                  Source
-                </a>
-                <a
-                  href={linkPreview}
-                  target="_blank"
-                  class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-primary/20 hover:scale-105 after:relative after:bottom-[-2px] after:content-[url(/external.svg)] after:transition-transform after:duration-200 group-hover:after:scale-110"
-                >
-                  Preview
-                </a>
-              </div>
-            </div>
-            <div class="flex items-center justify-center overflow-hidden p-6">
-              <div class="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 shadow-2xl">
-                <Image
-                  class="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
-                  src={image}
-                  alt={name}
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
+  <div class="grid gap-8 sm:grid-cols-2">
+    {
+      projects.map(({ name, summary, image, linkPreview, linkSource }) => (
+        <article class="rounded-2xl border border-neutral/20 bg-black overflow-hidden bg-gradient-to-br from-[#1c232d]/90 to-[#0f1419]/90 backdrop-blur-sm">
+          <div class="relative h-56 w-full overflow-hidden">
+            <Image
+              class="h-full w-full object-cover object-center transition-transform duration-300 hover:scale-105"
+              src={image}
+              alt={name}
+              width="600"
+              height="350"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </div>
+          <div class="px-6 py-6">
+            <h3 class="mb-3 font-serif text-2xl font-medium text-primary">
+              {name}
+            </h3>
+            <p class="text-base text-neutral mb-5 leading-relaxed">{summary}</p>
+            <div class="flex gap-4 text-white">
+              <a
+                href={linkSource}
+                target="_blank"
+                class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-primary/20 hover:scale-105 after:relative after:bottom-[-2px] after:content-[url(/external.svg)] after:transition-transform after:duration-200 group-hover:after:scale-110"
+              >
+                Source
+              </a>
+              <a
+                href={linkPreview}
+                target="_blank"
+                class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-primary/20 hover:scale-105 after:relative after:bottom-[-2px] after:content-[url(/external.svg)] after:transition-transform after:duration-200 group-hover:after:scale-110"
+              >
+                Preview
+              </a>
             </div>
           </div>
-        </div>
-      );
-    })
-  }
+        </article>
+      ))
+    }
+  </div>
 </Section>
