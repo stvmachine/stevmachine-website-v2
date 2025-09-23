@@ -6,9 +6,9 @@ const { name, specialty, summary, email } = Astro.props;
 ---
 
 <section class="py-24 md:py-32" id="hero">
-  <div class="rounded-2xl border border-neutral/20 bg-black p-6 sm:p-8 md:p-10 bg-gradient-to-br from-[#1c232d]/90 to-[#0f1419]/90 backdrop-blur-sm">
+  <div class="surface">
     <h1
-      class="mb-2 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:text-9xl"
+      class="mb-2 font-serif text-7xl font-bold tracking-tightest text-fg sm:text-8xl md:text-9xl"
     >
       {name}
     </h1>
@@ -17,7 +17,7 @@ const { name, specialty, summary, email } = Astro.props;
     >
       {specialty}
     </p>
-    <p class="mb-10 text-base font-normal text-neutral md:text-lg">
+    <p class="mb-10 text-base font-normal text-muted md:text-lg">
       {summary}
     </p>
 
@@ -28,7 +28,7 @@ const { name, specialty, summary, email } = Astro.props;
         >Get in Touch</a
       >
       <a
-        class="inline-block rounded-full border border-primary/30 px-8 py-4 text-sm leading-5 font-medium text-white/90 hover:bg-primary/10"
+        class="inline-block rounded-full border border-theme px-8 py-4 text-sm leading-5 font-medium text-fg transition-colors duration-200 hover:bg-white/5"
         href="#projects"
         >View Projects</a
       >

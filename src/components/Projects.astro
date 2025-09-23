@@ -14,7 +14,7 @@ const { projects } = Astro.props;
   <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
     {
       projects.map(({ name, summary, image, linkPreview, linkSource, slug }) => (
-        <article class="rounded-2xl border border-neutral/20 bg-black overflow-hidden bg-gradient-to-br from-[#1c232d]/90 to-[#0f1419]/90 backdrop-blur-sm flex h-full flex-col">
+        <article class="surface overflow-hidden flex h-full flex-col">
           <div class="relative h-56 w-full overflow-hidden">
             {slug ? (
               <a href={`/projects/${slug}`} aria-label={`${name} details`}>
@@ -52,8 +52,8 @@ const { projects } = Astro.props;
                 name
               )}
             </h3>
-            <p class="text-base text-neutral mb-5 leading-relaxed">{summary}</p>
-            <div class="mt-auto flex flex-wrap gap-4 text-white">
+            <p class="text-base text-muted mb-5 leading-relaxed">{summary}</p>
+            <div class="mt-auto flex flex-wrap gap-4">
               {slug && (
                 <a
                   href={`/projects/${slug}`}
@@ -62,20 +62,26 @@ const { projects } = Astro.props;
                   Details
                 </a>
               )}
-              <a
-                href={linkSource}
-                target="_blank"
-                class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-primary/20 hover:scale-105 after:relative after:bottom-[-2px] after:content-[url(/external.svg)] after:transition-transform after:duration-200 group-hover:after:scale-110"
-              >
-                Source
-              </a>
-              <a
-                href={linkPreview}
-                target="_blank"
-                class="group flex items-center gap-2 rounded-lg bg-primary/10 px-4 py-2 text-sm font-medium transition-all duration-200 hover:bg-primary/20 hover:scale-105 after:relative after:bottom-[-2px] after:content-[url(/external.svg)] after:transition-transform after:duration-200 group-hover:after:scale-110"
-              >
-                Preview
-              </a>
+              {linkSource && (
+                <a
+                  href={linkSource}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center gap-2 rounded-lg border border-theme px-4 py-2 text-sm font-medium text-fg transition-all duration-200 hover:bg-white/5 hover:scale-105 after:ml-1 after:inline-block after:h-[14px] after:w-[14px] after:bg-current after:[mask-image:url('/external.svg')] after:[-webkit-mask-image:url('/external.svg')] after:[mask-size:contain] after:[-webkit-mask-size:contain] after:[mask-repeat:no-repeat] after:[-webkit-mask-repeat:no-repeat] after:[mask-position:center] after:[-webkit-mask-position:center]"
+                >
+                  Source
+                </a>
+              )}
+              {linkPreview && (
+                <a
+                  href={linkPreview}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex items-center gap-2 rounded-lg border border-theme px-4 py-2 text-sm font-medium text-fg transition-all duration-200 hover:bg-white/5 hover:scale-105 after:ml-1 after:inline-block after:h-[14px] after:w-[14px] after:bg-current after:[mask-image:url('/external.svg')] after:[-webkit-mask-image:url('/external.svg')] after:[mask-size:contain] after:[-webkit-mask-size:contain] after:[mask-repeat:no-repeat] after:[-webkit-mask-repeat:no-repeat] after:[mask-position:center] after:[-webkit-mask-position:center]"
+                >
+                  Preview
+                </a>
+              )}
             </div>
           </div>
         </article>

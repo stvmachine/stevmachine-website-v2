@@ -9,7 +9,7 @@ const { siteLogo, navLinks } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-page px-5 py-6"
 >
   <a href="/" aria-label="Home link">
     <Image
@@ -24,7 +24,7 @@ const { siteLogo, navLinks } = Astro.props;
   <button
     type="button"
     id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
+    class="px-1.5 text-muted sm:hidden"
     aria-expanded="false"
     aria-controls="main-menu"
   >
@@ -32,7 +32,7 @@ const { siteLogo, navLinks } = Astro.props;
   </button>
 
   <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+    class="absolute top-20 right-5 hidden rounded-xl border border-theme bg-page px-4 py-5 text-muted sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
     id="main-menu"
   >
     <ul class="gap-2 sm:flex">
@@ -40,7 +40,7 @@ const { siteLogo, navLinks } = Astro.props;
         navLinks.map((link) => (
           <li class="relative">
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-fg`}
               href={link.href}
             >
               {link.text}
@@ -50,6 +50,10 @@ const { siteLogo, navLinks } = Astro.props;
       }
     </ul>
   </nav>
+
+  <button id="theme-toggle" class="ml-3 rounded-lg border border-theme px-3 py-2 text-xs text-fg hover:bg-white/5">
+    Toggle Theme
+  </button>
 </header>
 
 <script>
@@ -57,6 +61,7 @@ const { siteLogo, navLinks } = Astro.props;
   const button = document.querySelector("#menu-button");
   const menu = document.querySelector("#main-menu");
   const navItems = document.querySelectorAll("#main-menu > ul > li > a");
+  const themeBtn = document.querySelector('#theme-toggle');
 
   const toggleMenu = () => {
     menu?.classList.toggle("hidden");
@@ -101,6 +106,15 @@ const { siteLogo, navLinks } = Astro.props;
       });
     }
   };
+
+  // Theme toggle
+  const toggleTheme = () => {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    document.documentElement.setAttribute('data-theme', next);
+  }
+  themeBtn?.addEventListener('click', toggleTheme);
 </script>
 
 <style>

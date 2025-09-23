@@ -1,5 +1,5 @@
 ---
-import ProjectLayout from "@layouts/ProjectLayout.astro";
+import Layout from "@layouts/Layout.astro";
 import { SITE_CONTENT } from "@config";
 import type { ProjectProps } from "@types";
 
@@ -18,16 +18,16 @@ const { project } = Astro.props as PageProps;
 const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" } = project;
 ---
 
-<ProjectLayout>
+<Layout>
   <article>
-    <header class="mb-10 rounded-2xl border border-slate-200 bg-white">
+    <header class="mb-10 surface">
       <div class="grid gap-6 p-6 sm:grid-cols-2 sm:items-center sm:p-10">
         <div>
-          <a href="/#projects" class="mb-4 inline-flex items-center text-sm text-slate-500 hover:text-slate-700">← Back to Projects</a>
-          <h1 class="mb-3 font-serif text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+          <a href="/#projects" class="mb-4 inline-flex items-center text-sm text-muted hover:text-fg">← Back to Projects</a>
+          <h1 class="mb-3 font-serif text-4xl font-bold tracking-tight text-fg sm:text-5xl">
             {name}
           </h1>
-          <p class="text-base leading-relaxed text-slate-700 mb-6">{summary}</p>
+          <p class="text-base leading-relaxed text-muted mb-6">{summary}</p>
           <div class="flex flex-wrap gap-3">
             {linkPreview && (
               <a
@@ -42,13 +42,13 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
               <a
                 href={linkSource}
                 target="_blank"
-                class="inline-flex items-center rounded-lg border px-5 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50"
+                class="inline-flex items-center rounded-lg border border-theme px-5 py-2 text-sm font-medium text-fg transition-colors hover:bg-white/5"
                 >Source Code</a
               >
             )}
           </div>
         </div>
-        <div class="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+        <div class="overflow-hidden rounded-xl border border-theme bg-page">
           <img src={image} width="800" height="500" alt={name} class="h-full w-full object-cover" />
         </div>
       </div>
@@ -56,19 +56,19 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
     </header>
 
     <section class="grid gap-8 sm:grid-cols-2">
-      <div class="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 class="mb-3 text-xl font-semibold text-slate-900">Overview</h2>
-        <p class="text-slate-700 leading-relaxed">
+      <div class="surface p-6">
+        <h2 class="mb-3 text-xl font-semibold text-fg">Overview</h2>
+        <p class="text-muted leading-relaxed">
           This page is a brief overview for {name}. We can further expand with goals, impact, and your role. Provide me copy and I will fill it in.
         </p>
       </div>
-      <div class="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 class="mb-3 text-xl font-semibold text-slate-900">Skills & Technologies</h2>
+      <div class="surface p-6">
+        <h2 class="mb-3 text-xl font-semibold text-fg">Skills & Technologies</h2>
         <div class="flex flex-wrap gap-2 text-sm">
-          <span class="rounded-full border px-3 py-1 text-slate-700">React</span>
-          <span class="rounded-full border px-3 py-1 text-slate-700">TypeScript</span>
-          <span class="rounded-full border px-3 py-1 text-slate-700">Astro</span>
-          <span class="rounded-full border px-3 py-1 text-slate-700">Tailwind</span>
+          <span class="rounded-full border border-theme px-3 py-1 text-muted">React</span>
+          <span class="rounded-full border border-theme px-3 py-1 text-muted">TypeScript</span>
+          <span class="rounded-full border border-theme px-3 py-1 text-muted">Astro</span>
+          <span class="rounded-full border border-theme px-3 py-1 text-muted">Tailwind</span>
         </div>
       </div>
     </section>
@@ -83,7 +83,7 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
           return (
             <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {items.map((p) => (
-                <article class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                <article class="overflow-hidden surface shadow-sm">
                   <a href={`/projects/${p.slug}`} aria-label={`${p.name} details`}>
                     <div class="relative aspect-video w-full overflow-hidden">
                       <img
@@ -97,10 +97,10 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
                     </div>
                   </a>
                   <div class="px-4 py-4">
-                    <h3 class="text-base font-semibold text-slate-900">
+                    <h3 class="text-base font-semibold text-fg">
                       <a href={`/projects/${p.slug}`} class="hover:underline">{p.name}</a>
                     </h3>
-                    <p class="mt-1 line-clamp-2 text-sm text-slate-700">{p.summary}</p>
+                    <p class="mt-1 line-clamp-2 text-sm text-muted">{p.summary}</p>
                   </div>
                 </article>
               ))}
@@ -110,10 +110,10 @@ const { name, summary, image, linkPreview, linkSource, accentColor = "#2563eb" }
       }
     </section>
 
-    <section class="mt-12 rounded-2xl border border-slate-200 bg-white p-8 text-center">
-      <h3 class="mb-3 text-xl font-semibold text-slate-900">Interested in more about {name}?</h3>
-      <p class="mb-6 text-slate-700">Check the links above or reach out and I can share more details.</p>
-      <a href="/#projects" class="inline-flex items-center rounded-lg border px-5 py-2 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50">Back to Projects</a>
+    <section class="mt-12 surface p-8 text-center">
+      <h3 class="mb-3 text-xl font-semibold text-fg">Interested in more about {name}?</h3>
+      <p class="mb-6 text-muted">Check the links above or reach out and I can share more details.</p>
+      <a href="/#projects" class="inline-flex items-center rounded-lg border border-theme px-5 py-2 text-sm font-medium text-fg transition-colors hover:bg-white/5">Back to Projects</a>
     </section>
   </article>
-</ProjectLayout>
+</Layout>
