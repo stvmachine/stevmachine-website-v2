@@ -39,10 +39,9 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Dec 2023",
       endDate: "Present",
       summary: [
-        "Act as a technical domain expert in projects, including infrastructure (AWS & third-party services).",
-        "Mentoring junior and mid-level developers, driving technical excellence and team collaboration.",
-        "Notable clients: Kaluza, Mindset Health, AESOP, Nura, Good on You, Agronius and Ynomia.",
-        "Ackama is an AU-NZ digital agency specialising in government initiatives, energy suppliers, and startups.",
+        "Developed full-stack solutions for web and hybrid mobile applications, collaborating with product teams to deliver maintainable, scalable systems",
+        "Technologies: Node.js, React, React Native, Vue, NextJS, Gatsby, Ruby on Rails, Python (Django), AWS, Docker, Terraform, GraphQL, PostgreSQL, MongoDB",
+        "Mentored junior and mid-level developers, fostering team knowledge sharing and best practices",
       ],
     },
     {
@@ -51,9 +50,7 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Jul 2018",
       endDate: "Dec 2023",
       summary: [
-        "Full-stack development using React Native, React, Ruby on Rails, NodeJS, Python, Django, Ruby, TypeScript.",
-        "Hybrid App Development and Amazon Web Services (AWS) cloud infrastructure.",
-        "Worked on diverse projects including mobile apps, web platforms, and system migrations.",
+        "Prior to my promotion to Senior Developer, I led impactful hybrid mobile projects and delivered solutions across varied client requirements.",
       ],
     },
     {
@@ -66,7 +63,7 @@ export const SITE_CONTENT: SiteContent = {
         "Active collaboration with the rest of the team through email and daily meetings.",
         "Ensure continuous integration and automatic deployment to Play Store and iTunes using Bamboo and Fastlane.",
         "Strengthen the security of the app and add support for multiple APK on Android.",
-        "Develop tests and e2e tests using Ionic 4, Angular 5, iOS, Android, Firebase, Karma, Fastlane, Git.",
+        "Developed tests and e2e tests using Ionic 4, Angular 5, iOS, Android, Firebase, Karma, Fastlane, Git.",
       ],
     },
     {
@@ -112,7 +109,8 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
       linkPreview: "https://www.nervahealth.com/",
-      linkSource: "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
+      linkSource:
+        "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
     },
     {
@@ -122,7 +120,8 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "Revamped Good On You mobile app and website for ethical fashion ratings.",
       linkPreview: "https://directory.goodonyou.eco/",
-      linkSource: "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      linkSource:
+        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       image: "/goodonyou-directory.png",
     },
     {
