@@ -11,7 +11,8 @@ const { siteLogo, navLinks } = Astro.props;
 <header
   class="sticky top-0 z-50 mx-auto flex max-w-7xl animate-slide-in items-center justify-between bg-black/80 backdrop-blur-sm border-b border-gray-800/50 px-5 py-6"
 >
-  <a href="/" aria-label="Home link">
+  <div class="flex items-center">
+    <a href="/" aria-label="Home link">
     <Image
       class="h-12 w-12 rounded-full object-cover"
       src={siteLogo}
@@ -19,7 +20,8 @@ const { siteLogo, navLinks } = Astro.props;
       height="48"
       alt="website logo"
     />
-  </a>
+    </a>
+  </div>
 
   <button
     type="button"
@@ -32,10 +34,10 @@ const { siteLogo, navLinks } = Astro.props;
   </button>
 
   <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-gray-700 bg-gray-900/95 backdrop-blur-sm px-4 py-5 sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+    class="absolute top-20 right-5 hidden rounded-xl border border-gray-700 bg-gray-900/95 backdrop-blur-sm px-4 py-5 sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0 sm:mx-auto"
     id="main-menu"
   >
-    <ul class="gap-2 sm:flex">
+    <ul class="gap-2 sm:flex sm:justify-center">
       {
         navLinks.map((link) => (
           <li class="relative">
@@ -51,7 +53,7 @@ const { siteLogo, navLinks } = Astro.props;
     </ul>
   </nav>
 
-  <button id="theme-toggle" aria-pressed="false" class="hidden group ml-3 inline-flex h-8 w-14 items-center rounded-full bg-slate-200 p-1 transition-all duration-300 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600">
+  <!-- <button id="theme-toggle" aria-pressed="false" class="hidden group ml-3 inline-flex h-8 w-14 items-center rounded-full bg-slate-200 p-1 transition-all duration-300 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600">
     <span class="sr-only">Toggle theme</span>
     <div id="theme-thumb" class="flex h-6 w-6 translate-x-0 items-center justify-center rounded-full bg-white shadow-md transition-all duration-300 dark:bg-slate-800">
       <svg id="sun-icon" class="h-4 w-4 text-amber-500 transition-all duration-300" fill="currentColor" viewBox="0 0 20 20">
@@ -61,7 +63,7 @@ const { siteLogo, navLinks } = Astro.props;
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
       </svg>
     </div>
-  </button>
+  </button> -->
 </header>
 
 <script>
