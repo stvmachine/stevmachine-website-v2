@@ -59,13 +59,7 @@ const { projects } = Astro.props;
               {/* Project Content */}
               <div class="p-6 space-y-4">
                 <h3 class="font-serif text-xl font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
-                  {slug ? (
-                    <a href={`/projects/${slug}`} class="hover:underline">
-                      {name}
-                    </a>
-                  ) : (
-                    name
-                  )}
+                  {name}
                 </h3>
                 
                 <p class="text-sm text-gray-300 leading-relaxed line-clamp-3">
@@ -121,17 +115,11 @@ const { projects } = Astro.props;
       }
     </div>
 
-    {/* View All Projects Link */}
+    <!-- Explore Projects Message -->
     <div class="text-center mt-12">
-      <a
-        href="/projects"
-        class="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
-      >
-        View All Projects
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
+      <p class="text-lg text-gray-400">
+        Click on any project above to view detailed information
+      </p>
     </div>
   </div>
 </section>
