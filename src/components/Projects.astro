@@ -38,19 +38,31 @@ const { projects } = Astro.props;
                       height="350"
                       loading="lazy"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div class={`absolute inset-0 ${
+                      name.includes('Good on You')
+                        ? 'bg-gradient-to-t from-black/40 via-transparent to-transparent'
+                        : 'bg-gradient-to-t from-black/60 via-transparent to-transparent'
+                    }`} />
                   </a>
                 ) : (
                   <>
-                    <Image
-                      class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                    <img
+                      class={`h-full w-full transition-transform duration-500 group-hover:scale-110 ${
+                        name.includes('Good on You') 
+                          ? 'object-cover object-top' 
+                          : 'object-cover object-center'
+                      }`}
                       src={image}
                       alt={name}
                       width="600"
                       height="350"
                       loading="lazy"
                     />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div class={`absolute inset-0 ${
+                      name.includes('Good on You')
+                        ? 'bg-gradient-to-t from-black/40 via-transparent to-transparent'
+                        : 'bg-gradient-to-t from-black/60 via-transparent to-transparent'
+                    }`} />
                   </>
                 )}
                 

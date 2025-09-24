@@ -159,24 +159,14 @@ export const SITE_CONTENT: SiteContent = {
       image: "/goodonyou-mobile.png",
     },
     {
-      name: "Tugeda – Marketing Website",
-      slug: "tugeda-website",
-      accentColor: "#f59e0b",
-      summary:
-        "Delivered a responsive, accessible marketing site with a performant build pipeline and a modular component system.",
-      linkPreview: "https://tugeda.com/",
-      linkSource: "https://tugeda.com/",
-      image: "/tugeda-website.png",
-    },
-    {
-      name: "Nura — Consumer Audio",
-      slug: "nura-consumer-audio",
+      name: "Nura - System Backend Upgrade and React Storefront",
+      slug: "nura-system-backend-upgrade",
       accentColor: "#ef4444",
       summary:
-        "Contributed to product UI and feature delivery across mobile and web properties for the audio brand Nura, focusing on performance, accessibility, and polished user flows.",
+        "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
       linkPreview: "https://www.nurasound.com/",
       linkSource: "https://www.nurasound.com/",
-      image: "/tugeda-website.png",
+      image: "/nura-storefront.png",
     },
   ],
   about: {
