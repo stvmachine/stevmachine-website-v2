@@ -13,32 +13,28 @@ const { experience } = Astro.props;
   {
     experience.map(({ company, position, startDate, endDate, summary }) => (
       <div class="mb-10">
-        <div class="rounded-2xl border border-neutral/20 bg-black p-6 sm:p-8 md:p-10 bg-gradient-to-br from-[#1c232d]/90 to-[#0f1419]/90 backdrop-blur-sm">
-          <div class="flex flex-col">
-            <h3 class="mb-1.5 font-serif text-2xl font-semibold text-white">
-              {company}
-            </h3>
-            <div class="mb-5 flex flex-col items-start">
-              <h4 class="mb-0.5 font-serif text-2xl font-medium text-primary">
-                {position}
-              </h4>
-              <span class="pb-[2px] text-sm text-white/70">
-                {startDate} — {endDate}
-              </span>
-            </div>
-            {Array.isArray(summary) ? (
-              <ul class="list-none">
-                {summary.map((log) => (
-                  <li class="relative mb-3 pl-8 text-base text-neutral before:absolute before:top-1 before:left-0 before:content-[url(/check.svg)]">
-                    {log}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p class="text-base text-neutral">{summary}</p>
-            )}
-          </div>
+        <h3 class="mb-1.5 font-serif text-2xl font-semibold text-fg">
+          {company}
+        </h3>
+        <div class="mb-5 flex flex-col items-start">
+          <h4 class="mb-0.5 font-serif text-2xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
+            {position}
+          </h4>
+          <span class="pb-[2px] text-sm text-muted">
+            {startDate} — {endDate}
+          </span>
         </div>
+        {Array.isArray(summary) ? (
+          <ul class="list-none">
+            {summary.map((log) => (
+              <li class="relative mb-3 pl-8 text-base text-muted before:absolute before:top-1 before:left-0 before:content-[url(/check.svg)]">
+                {log}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="text-base text-muted">{summary}</p>
+        )}
       </div>
     ))
   }

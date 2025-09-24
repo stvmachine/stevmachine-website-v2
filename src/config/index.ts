@@ -39,10 +39,9 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Dec 2023",
       endDate: "Present",
       summary: [
-        "Act as a technical domain expert in projects, including infrastructure (AWS & third-party services).",
-        "Mentoring junior and mid-level developers, driving technical excellence and team collaboration.",
-        "Notable clients: Kaluza, Mindset Health, AESOP, Nura, Good on You, Agronius and Ynomia.",
-        "Ackama is an AU-NZ digital agency specialising in government initiatives, energy suppliers, and startups.",
+        "Developed full-stack solutions for web and hybrid mobile applications, collaborating with product teams to deliver maintainable, scalable systems",
+        "Technologies: Node.js, React, React Native, Vue, NextJS, Gatsby, Ruby on Rails, Python (Django), AWS, Docker, Terraform, GraphQL, PostgreSQL, MongoDB",
+        "Mentored junior and mid-level developers, fostering team knowledge sharing and best practices",
       ],
     },
     {
@@ -51,9 +50,7 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Jul 2018",
       endDate: "Dec 2023",
       summary: [
-        "Full-stack development using React Native, React, Ruby on Rails, NodeJS, Python, Django, Ruby, TypeScript.",
-        "Hybrid App Development and Amazon Web Services (AWS) cloud infrastructure.",
-        "Worked on diverse projects including mobile apps, web platforms, and system migrations.",
+        "Prior to my promotion to Senior Developer, I led impactful hybrid mobile projects and delivered solutions across varied client requirements.",
       ],
     },
     {
@@ -66,7 +63,7 @@ export const SITE_CONTENT: SiteContent = {
         "Active collaboration with the rest of the team through email and daily meetings.",
         "Ensure continuous integration and automatic deployment to Play Store and iTunes using Bamboo and Fastlane.",
         "Strengthen the security of the app and add support for multiple APK on Android.",
-        "Develop tests and e2e tests using Ionic 4, Angular 5, iOS, Android, Firebase, Karma, Fastlane, Git.",
+        "Developed tests and e2e tests using Ionic 4, Angular 5, iOS, Android, Firebase, Karma, Fastlane, Git.",
       ],
     },
     {
@@ -106,39 +103,70 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
+      name: "Nura - System Backend Upgrade and React Storefront",
+      slug: "nura-system-backend-upgrade",
+      accentColor: "#ef4444",
+      summary:
+        "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
+      linkPreview: "https://www.nurasound.com/",
+      linkMobileApp: "https://www.nurasound.com/",
+      image: "/nurasound-storefront.png",
+    },
+    {
       name: "Mindset Health - Nerva & Finito",
+      slug: "mindset-health",
+      accentColor: "#ec4899",
       summary:
         "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
       linkPreview: "https://www.nervahealth.com/",
-      linkSource: "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
+      linkMobileApp:
+        "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
     },
     {
-      name: "Good on You - Mobile App and Website",
-      summary:
-        "Revamped Good On You mobile app and website for ethical fashion ratings.",
-      linkPreview: "https://directory.goodonyou.eco/",
-      linkSource: "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
-      image: "/goodonyou-directory.png",
-    },
-    {
       name: "VicSuper Mobile App",
+      slug: "vicsuper-mobile-app",
+      accentColor: "#2563eb",
       summary:
         "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
-      linkSource: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
+      linkMobileApp: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       image: "/vicsuper-mobile-app.png",
     },
     {
       name: "Banco de Chile Apps",
+      slug: "banco-de-chile-apps",
+      accentColor: "#0ea5e9",
       summary:
         "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
       linkPreview:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
-      linkSource:
+      linkMobileApp:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       image: "/bancodechile-mobile.png",
     },
+    {
+      name: "Good on You - Mobile App",
+      slug: "good-on-you-mobile",
+      accentColor: "#16a34a",
+      summary:
+        "Implemented UI improvements and feature delivery across the iOS and Android apps. Focus on performance, UX polish, and release stability.",
+      linkPreview:
+        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      linkMobileApp:
+        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      image: "/goodonyou-mobile.png",
+    },
+    {
+      name: "Good on You - Website",
+      slug: "good-on-you",
+      accentColor: "#22c55e",
+      summary:
+        "Revamped Good On You mobile app and website for ethical fashion ratings.",
+      linkPreview: "https://directory.goodonyou.eco/",
+      image: "/goodonyou-directory.png",
+    },
+  
   ],
   about: {
     description: `
