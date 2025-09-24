@@ -103,6 +103,16 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
+      name: "Nura - System Backend Upgrade and React Storefront",
+      slug: "nura-system-backend-upgrade",
+      accentColor: "#ef4444",
+      summary:
+        "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
+      linkPreview: "https://www.nurasound.com/",
+      linkSource: "https://www.nurasound.com/",
+      image: "/nurasound-storefront.png",
+    },
+    {
       name: "Mindset Health - Nerva & Finito",
       slug: "mindset-health",
       accentColor: "#ec4899",
@@ -112,17 +122,6 @@ export const SITE_CONTENT: SiteContent = {
       linkSource:
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
-    },
-    {
-      name: "Good on You - Mobile App and Website",
-      slug: "good-on-you",
-      accentColor: "#22c55e",
-      summary:
-        "Revamped Good On You mobile app and website for ethical fashion ratings.",
-      linkPreview: "https://directory.goodonyou.eco/",
-      linkSource:
-        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
-      image: "/goodonyou-directory.png",
     },
     {
       name: "VicSuper Mobile App",
@@ -159,15 +158,17 @@ export const SITE_CONTENT: SiteContent = {
       image: "/goodonyou-mobile.png",
     },
     {
-      name: "Nura - System Backend Upgrade and React Storefront",
-      slug: "nura-system-backend-upgrade",
-      accentColor: "#ef4444",
+      name: "Good on You - Website",
+      slug: "good-on-you",
+      accentColor: "#22c55e",
       summary:
-        "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
-      linkPreview: "https://www.nurasound.com/",
-      linkSource: "https://www.nurasound.com/",
-      image: "/nura-storefront.png",
+        "Revamped Good On You mobile app and website for ethical fashion ratings.",
+      linkPreview: "https://directory.goodonyou.eco/",
+      linkSource:
+        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      image: "/goodonyou-directory.png",
     },
+  
   ],
   about: {
     description: `
