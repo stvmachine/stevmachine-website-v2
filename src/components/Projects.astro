@@ -10,13 +10,13 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<section class="py-24 bg-black" id="projects">
+<section class="bg-black py-24" id="projects">
   <div class="mx-auto max-w-7xl px-5">
     <div class="mb-16 text-center">
-      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
+      <h2 class="mb-4 font-serif text-4xl font-bold text-white md:text-5xl">
         Featured Projects
       </h2>
-      <p class="text-xl text-gray-400 max-w-2xl mx-auto">
+      <p class="mx-auto max-w-2xl text-xl text-gray-400">
         A showcase of my recent work and contributions
       </p>
     </div>
@@ -24,8 +24,17 @@ const { projects } = Astro.props;
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
         projects.map(
-          ({ name, summary, image, linkPreview, linkMobileApp, slug, accentColor }) => (
-            <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10 flex flex-col h-full">
+          ({
+            name,
+            summary,
+            image,
+            linkPreview,
+            linkMobileApp,
+            linkAppStore,
+            slug,
+            tech = [],
+          }) => (
+            <article class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10">
               {/* Project Image */}
               <div class="relative h-48 overflow-hidden">
                 {slug ? (
@@ -38,19 +47,21 @@ const { projects } = Astro.props;
                       height="350"
                       loading="lazy"
                     />
-                    <div class={`absolute inset-0 ${
-                      name.includes('Good on You')
-                        ? 'bg-gradient-to-t from-black/40 via-transparent to-transparent'
-                        : 'bg-gradient-to-t from-black/60 via-transparent to-transparent'
-                    }`} />
+                    <div
+                      class={`absolute inset-0 ${
+                        name.includes("Good on You")
+                          ? "bg-gradient-to-t from-black/40 via-transparent to-transparent"
+                          : "bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                      }`}
+                    />
                   </a>
                 ) : (
                   <>
                     <img
                       class={`h-full w-full transition-transform duration-500 group-hover:scale-110 ${
-                        name.includes('Good on You') 
-                          ? 'object-cover object-top' 
-                          : 'object-cover object-center'
+                        name.includes("Good on You")
+                          ? "object-cover object-top"
+                          : "object-cover object-center"
                       }`}
                       src={image}
                       alt={name}
@@ -58,63 +69,126 @@ const { projects } = Astro.props;
                       height="350"
                       loading="lazy"
                     />
-                    <div class={`absolute inset-0 ${
-                      name.includes('Good on You')
-                        ? 'bg-gradient-to-t from-black/40 via-transparent to-transparent'
-                        : 'bg-gradient-to-t from-black/60 via-transparent to-transparent'
-                    }`} />
+                    <div
+                      class={`absolute inset-0 ${
+                        name.includes("Good on You")
+                          ? "bg-gradient-to-t from-black/40 via-transparent to-transparent"
+                          : "bg-gradient-to-t from-black/60 via-transparent to-transparent"
+                      }`}
+                    />
                   </>
                 )}
-                
               </div>
 
               {/* Project Content */}
-              <div class="p-6 flex flex-col h-full">
+              <div class="flex h-full flex-col p-6">
                 <div class="flex-grow space-y-4">
-                  <h3 class="font-serif text-xl font-semibold text-white group-hover:text-purple-300 transition-colors duration-300">
+                  <h3 class="font-serif text-xl font-semibold text-white transition-colors duration-300 group-hover:text-purple-300">
                     {name}
                   </h3>
-                  
-                  <p class="text-sm text-gray-300 leading-relaxed line-clamp-3">
+
+                  <p class="mb-3 line-clamp-3 text-sm leading-relaxed text-gray-300">
                     {summary}
                   </p>
+                  {tech.length > 0 && (
+                    <div class="mt-2 flex flex-wrap gap-2">
+                      {tech.map((item) => (
+                        <span class="rounded-full bg-gray-800 px-2 py-1 text-xs text-gray-300">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Action Buttons - Always at bottom */}
-                <div class="flex flex-wrap gap-3 pt-4 mt-auto">
+                <div class="mt-auto flex flex-wrap gap-3 pt-4">
                   {/* Preview Button */}
-                  {linkPreview && !linkPreview.includes('apps.apple.com') && !linkPreview.includes('play.google.com') && (
-                    <a
-                      href={linkPreview}
-                      target="_blank"
-                      class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
-                    >
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                      Preview
-                    </a>
-                  )}
+                  {linkPreview &&
+                    !linkPreview.includes("apps.apple.com") &&
+                    !linkPreview.includes("play.google.com") && (
+                      <a
+                        href={linkPreview}
+                        target="_blank"
+                        class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 px-4 py-2 text-xs font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
+                      >
+                        <svg
+                          class="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </a>
+                    )}
 
-                  {/* App Store / Play Store Button */}
-                  {(linkMobileApp && (linkMobileApp.includes('apps.apple.com') || linkMobileApp.includes('play.google.com'))) || 
-                   (linkPreview && (linkPreview.includes('apps.apple.com') || linkPreview.includes('play.google.com'))) ? (
-                    <a
-                      href={linkMobileApp?.includes('apps.apple.com') || linkMobileApp?.includes('play.google.com') ? linkMobileApp : linkPreview}
-                      target="_blank"
-                      class="inline-flex items-center gap-2 rounded-lg bg-gray-700 px-4 py-2 text-xs font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600"
-                    >
-                      <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                      </svg>
-                      {(linkMobileApp?.includes('apps.apple.com') || linkPreview?.includes('apps.apple.com')) ? 'App Store' : 'Play Store'}
-                    </a>
-                  ) : null}
+                  {/* App Store / Play Store Buttons */}
+                  {(() => {
+                    // Define store links with their types and labels
+                    const storeLinks = [
+                      {
+                        type: "appStore",
+                        url: linkAppStore,
+                        label: "App Store",
+                      },
+                      {
+                        type: "playStore",
+                        url: linkMobileApp,
+                        label: "Play Store",
+                      },
+                    ].filter((link) => link.url);
+
+                    if (storeLinks.length === 0) return null;
+
+                    // Define icons for each store type
+                    const icons = {
+                      appStore: (
+                        <svg
+                          class="h-4 w-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 1.5a8.5 8.5 0 100 17 8.5 8.5 0 000-17zm0 2.5a6 6 0 110 12 6 6 0 010-12z" />
+                        </svg>
+                      ),
+                      playStore: (
+                        <svg
+                          class="h-4 w-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.979 10.4l4.198-4.2a1 1 0 00.214-1.09 1 1 0 00-.214-.303l-1.4-1.4a1 1 0 00-1.414 0l-4.2 4.2 1.4 1.4a1 1 0 001.414 0zM6.6 2.2l1.4 1.4-4.2 4.2a1 1 0 000 1.414l4.2 4.2-1.4 1.4-4.2-4.2a1 1 0 00-.303-.214A1 1 0 002 9.4v-1.4a1 1 0 01.214-.61L6.6 2.2zm10.8 19.6l-1.4-1.4 4.2-4.2a1 1 0 000-1.414l-4.2-4.2 1.4-1.4 4.2 4.2a1 1 0 01.214.61v1.4a1 1 0 01-.214.61l-4.2 4.2z" />
+                        </svg>
+                      ),
+                    };
+
+                    return storeLinks.map((link) => {
+                      const icon = icons[link.type as keyof typeof icons];
+                      return (
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          class="inline-flex items-center gap-2 rounded-lg bg-gray-700 px-3 py-1.5 text-xs font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600"
+                          rel="noopener noreferrer"
+                          title={`Download on ${link.label}`}
+                        >
+                          {icon}
+                          {link.label}
+                        </a>
+                      );
+                    });
+                  })()}
                 </div>
               </div>
 
               {/* Hover effect overlay */}
-              <div class="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </article>
           ),
         )
@@ -122,7 +196,7 @@ const { projects } = Astro.props;
     </div>
 
     <!-- Explore Projects Message -->
-    <div class="text-center mt-12">
+    <div class="mt-12 text-center">
       <p class="text-lg text-gray-400">
         Click on any project above to view detailed information
       </p>

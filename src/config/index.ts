@@ -105,68 +105,108 @@ export const SITE_CONTENT: SiteContent = {
     {
       name: "Nura - System Backend Upgrade and React Storefront",
       slug: "nura-system-backend-upgrade",
-      accentColor: "#ef4444",
       summary:
         "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
       linkPreview: "https://www.nurasound.com/",
       linkMobileApp: "https://www.nurasound.com/",
       image: "/nurasound-storefront.png",
+      tech: [
+        "React",
+        "GatsbyJS",
+        "Stripe",
+        "GraphQL",
+        "Ruby on Rails",
+        "AWS",
+        "Docker",
+        "Terraform",
+        "PostgreSQL",
+      ],
     },
     {
       name: "Mindset Health - Nerva & Finito",
       slug: "mindset-health",
-      accentColor: "#ec4899",
       summary:
         "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
       linkPreview: "https://www.nervahealth.com/",
+      linkAppStore:
+        "https://apps.apple.com/us/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       linkMobileApp:
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
+      tech: [
+        "Ionic",
+        "Angular",
+        "Cordova",
+        "Android",
+        "iOS",
+        "Firebase",
+        "Test-Driven Development",
+        "CI/CD",
+        "A/B Testing",
+        "Fastlane",
+        "Git",
+      ],
     },
     {
       name: "VicSuper Mobile App",
       slug: "vicsuper-mobile-app",
-      accentColor: "#2563eb",
       summary:
         "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
-      linkMobileApp: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
-      image: "/vicsuper-mobile-app.png",
-    },
-    {
-      name: "Banco de Chile Apps",
-      slug: "banco-de-chile-apps",
-      accentColor: "#0ea5e9",
-      summary:
-        "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
-      linkPreview:
-        "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       linkMobileApp:
-        "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
-      image: "/bancodechile-mobile.png",
+        "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
+      image: "/vicsuper-mobile-app.png",
+      tech: [
+        "Ionic",
+        "Angular",
+        "Android",
+        "iOS",
+        "Google Analytics",
+        "Karma",
+        "Git",
+      ],
     },
     {
       name: "Good on You - Mobile App",
       slug: "good-on-you-mobile",
-      accentColor: "#16a34a",
       summary:
         "Implemented UI improvements and feature delivery across the iOS and Android apps. Focus on performance, UX polish, and release stability.",
-      linkPreview:
-        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       linkMobileApp:
         "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
+      linkAppStore:
+        "https://apps.apple.com/us/app/good-on-you-ethical-ratings/id1044017998",
       image: "/goodonyou-mobile.png",
+      tech: [
+        "React Native",
+        "Typescript",
+        "NodeJS",
+        "GraphQL",
+        "Android",
+        "iOS",
+        "Google Analytics",
+        "Fastlane",
+        "Git",
+      ],
     },
     {
       name: "Good on You - Website",
       slug: "good-on-you",
-      accentColor: "#22c55e",
       summary:
         "Revamped Good On You mobile app and website for ethical fashion ratings.",
       linkPreview: "https://directory.goodonyou.eco/",
       image: "/goodonyou-directory.png",
     },
-  
+    {
+      name: "Banco de Chile Apps",
+      slug: "banco-de-chile-apps",
+      summary:
+        "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
+      linkMobileApp:
+        "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
+      linkAppStore: "https://apps.apple.com/cl/app/mi-banco-chile/id1516872542",
+      image: "/bancodechile-mobile.png",
+      tech: ["React", "NodeJS", "GraphQL", "Git"],
+    },
   ],
   about: {
     description: `
