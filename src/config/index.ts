@@ -109,7 +109,7 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
       linkPreview: "https://www.nurasound.com/",
-      linkSource: "https://www.nurasound.com/",
+      linkMobileApp: "https://www.nurasound.com/",
       image: "/nurasound-storefront.png",
     },
     {
@@ -119,7 +119,7 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
       linkPreview: "https://www.nervahealth.com/",
-      linkSource:
+      linkMobileApp:
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
     },
@@ -130,7 +130,7 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
-      linkSource: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
+      linkMobileApp: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       image: "/vicsuper-mobile-app.png",
     },
     {
@@ -141,7 +141,7 @@ export const SITE_CONTENT: SiteContent = {
         "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
       linkPreview:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
-      linkSource:
+      linkMobileApp:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       image: "/bancodechile-mobile.png",
     },
@@ -153,7 +153,7 @@ export const SITE_CONTENT: SiteContent = {
         "Implemented UI improvements and feature delivery across the iOS and Android apps. Focus on performance, UX polish, and release stability.",
       linkPreview:
         "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
-      linkSource:
+      linkMobileApp:
         "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       image: "/goodonyou-mobile.png",
     },
@@ -164,8 +164,6 @@ export const SITE_CONTENT: SiteContent = {
       summary:
         "Revamped Good On You mobile app and website for ethical fashion ratings.",
       linkPreview: "https://directory.goodonyou.eco/",
-      linkSource:
-        "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       image: "/goodonyou-directory.png",
     },
   

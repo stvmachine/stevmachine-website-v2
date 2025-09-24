@@ -35,7 +35,7 @@ export interface ProjectProps {
   summary: string;
   image: string;
   linkPreview?: string;
-  linkSource?: string;
+  linkMobileApp?: string;
   slug?: string;
   accentColor?: string;
 }
