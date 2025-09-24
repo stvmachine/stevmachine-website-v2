@@ -42,7 +42,7 @@ const { siteLogo, navLinks } = Astro.props;
         navLinks.map((link) => (
           <li class="relative">
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-300 hover:text-white text-gray-300`}
+              class="nav-item relative block px-3 py-2 text-base font-semibold transition-all duration-300 hover:text-white text-gray-300 hover:bg-gray-800/50 rounded-lg"
               href={link.href}
             >
               {link.text}
