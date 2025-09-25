@@ -198,7 +198,7 @@ Key Contributions:
         "https://apps.apple.com/us/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       linkGooglePlay:
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
-      image: "/nerva.webp",
+      image: "/mindset-health/mindset-health.jpg",
       tech: [
         "React Native",
         "TypeScript",
@@ -208,6 +208,23 @@ Key Contributions:
         "CI/CD",
         "Fastlane",
         "GitHub Actions",
+      ],
+      screenshots: [
+        {
+          url: "/mindset-health/nerva-1.webp",
+          alt: "Nerva App - Hypnotherapy Session",
+          caption: "Main hypnotherapy session interface with progress tracking and audio controls",
+        },
+        {
+          url: "/mindset-health/finito-1.webp",
+          alt: "Finito App - Program Overview",
+          caption: "Program overview showing session progress and therapeutic content",
+        },
+        {
+          url: "/mindset-health/evia-1.webp",
+          alt: "Evia App - Program Overview",
+          caption: "Program overview showing session progress and therapeutic content",
+        },
       ],
     },
     {
@@ -266,7 +283,7 @@ Key Contributions:
         "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       linkAppStore:
         "https://apps.apple.com/us/app/good-on-you-ethical-ratings/id1044017998",
-      image: "/goodonyou-mobile.png",
+      image: "/goodonyou-mobile/goodonyou-mobile-1.png",
       tech: [
         "React Native",
         "TypeScript",
@@ -278,6 +295,28 @@ Key Contributions:
         "Detox",
         "Redux Toolkit",
         "GitHub Actions",
+      ],
+      screenshots: [
+        {
+          url: "/goodonyou-mobile/goodonyou-mobile-1.png",
+          alt: "Good on You Mobile App - Home Screen",
+          caption: "Main interface showcasing ethical brand ratings and featured content",
+        },
+        {
+          url: "/goodonyou-mobile/goodonyou-mobile-2.webp",
+          alt: "Good on You Mobile App - Brand Search",
+          caption: "Advanced brand search and filtering capabilities",
+        },
+        {
+          url: "/goodonyou-mobile/goodonyou-mobile-3.webp",
+          alt: "Good on You Mobile App - Brand Details",
+          caption: "Detailed brand information with ethical ratings and sustainability metrics",
+        },
+        {
+          url: "/goodonyou-mobile/goodonyou-mobile-4.webp",
+          alt: "Good on You Mobile App - Collections",
+          caption: "Personal collections and saved items for sustainable shopping",
+        },
       ],
       implementationDetails: {
         features: [
@@ -314,7 +353,7 @@ Key Contributions:
       challenges: `The main challenge was handling the complex filtering system for thousands of brands while maintaining fast page loads. We also had to ensure the site was accessible and performed well across all devices and connection speeds.`,
       role: "Frontend Tech Lead",
       linkPreview: "https://directory.goodonyou.eco/",
-      image: "/goodonyou-directory.png",
+      image: "/goodonyou-website/goodonyou-directory-1.png",
       tech: [
         "React",
         "TypeScript",
@@ -323,6 +362,18 @@ Key Contributions:
         "GraphQL",
         "Headless CMS",
         "GitHub Actions",
+      ],
+      screenshots: [
+        {
+          url: "/goodonyou-website/goodonyou-directory-1.png",
+          alt: "Good on You Website - Brand Directory",
+          caption: "Main brand directory interface with search and filtering capabilities",
+        },
+        {
+          url: "/goodonyou-website/goodonyou-directory-3.png",
+          alt: "Good on You Website - Search Results",
+          caption: "Advanced search results with filtering options and brand comparisons",
+        },
       ],
       implementationDetails: {
         seo: {
@@ -355,7 +406,7 @@ Key Contributions:
       linkGooglePlay:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       linkAppStore: "https://apps.apple.com/cl/app/mi-banco-chile/id1516872542",
-      image: "/bancodechile-mobile.png",
+      image: "/bancodechile/bancodechile-mobile-1.webp",
       tech: [
         "Ionic",
         "Angular",
