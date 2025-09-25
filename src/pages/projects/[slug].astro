@@ -1,6 +1,7 @@
 ---
 import { SITE_CONTENT } from "@config";
 import ProjectLayout from "@layouts/ProjectLayout.astro";
+import ProjectCarousel from "@components/ProjectCarousel.astro";
 import type { ProjectProps } from "@types";
 
 export function getStaticPaths() {
@@ -181,28 +182,12 @@ const {
     </header>
 
     <!-- Project Details -->
-    {/* Project Screenshots */}
+    {/* Project Screenshots Carousel */}
     {
       screenshots.length > 0 && (
         <section class="space-y-8">
           <h2 class="text-2xl font-semibold text-white">Screenshots</h2>
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {screenshots.map((screenshot) => (
-              <div class="group relative overflow-hidden rounded-xl border border-gray-700 bg-gray-900 transition-all hover:border-purple-500">
-                <img
-                  src={screenshot.url}
-                  alt={screenshot.alt}
-                  class="h-64 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                {screenshot.caption && (
-                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white opacity-0 transition-opacity group-hover:opacity-100">
-                    <p class="text-sm">{screenshot.caption}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <ProjectCarousel screenshots={screenshots} projectName={name} />
         </section>
       )
     }

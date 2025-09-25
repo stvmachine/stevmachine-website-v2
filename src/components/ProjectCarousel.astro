@@ -1,0 +1,342 @@
+---
+import type { ProjectImage } from "@types";
+
+interface Props {
+  screenshots: ProjectImage[];
+  projectName: string;
+}
+
+const { screenshots, projectName } = Astro.props;
+---
+
+<div class="project-carousel-container">
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carousel-track">
+      {screenshots.map((screenshot, index) => (
+        <div class="carousel-slide" data-slide={index}>
+          <div class="carousel-slide-content">
+            <img
+              src={screenshot.url}
+              alt={screenshot.alt}
+              class="carousel-image"
+              loading="lazy"
+            />
+            {screenshot.caption && (
+              <div class="carousel-caption">
+                <p class="carousel-caption-text">{screenshot.caption}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Navigation Controls -->
+    <button
+      class="carousel-nav carousel-prev"
+      id="carousel-prev"
+      aria-label="Previous screenshot"
+    >
+      <svg
+        class="carousel-nav-icon"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+    </button>
+
+    <button
+      class="carousel-nav carousel-next"
+      id="carousel-next"
+      aria-label="Next screenshot"
+    >
+      <svg
+        class="carousel-nav-icon"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Dots Indicator -->
+  <div class="carousel-dots" id="carousel-dots">
+    {screenshots.map((_, index) => (
+      <button
+        class="carousel-dot"
+        data-slide={index}
+        aria-label={`Go to screenshot ${index + 1}`}
+      ></button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .project-carousel-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    height: 40rem;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 40rem;
+  }
+
+  .carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 40rem;
+  }
+
+  .carousel-slide-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid #374151;
+    background-color: #111827;
+    height: 40rem;
+    width: 100%;
+  }
+
+  .carousel-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+  }
+
+  .carousel-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1rem;
+    color: white;
+  }
+
+  .carousel-caption-text {
+    font-size: 0.875rem;
+  }
+
+  .carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(31, 41, 55, 0.8);
+    color: white;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .carousel-nav:hover {
+    background-color: rgba(55, 65, 81, 0.9);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .carousel-nav:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #8b5cf6;
+  }
+
+  .carousel-prev {
+    left: 1rem;
+  }
+
+  .carousel-next {
+    right: 1rem;
+  }
+
+  .carousel-nav-icon {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-dot {
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 50%;
+    background-color: #4b5563;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .carousel-dot:hover {
+    background-color: #9ca3af;
+  }
+
+  .carousel-dot:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #8b5cf6;
+  }
+
+  .carousel-dot.active {
+    background-color: #8b5cf6;
+  }
+
+  /* Hide navigation on mobile for better UX */
+  @media (max-width: 768px) {
+    .carousel-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  class ProjectCarousel {
+    track: HTMLElement | null;
+    prevBtn: HTMLElement | null;
+    nextBtn: HTMLElement | null;
+    dots: NodeListOf<HTMLElement>;
+    slides: NodeListOf<HTMLElement>;
+    currentSlide: number;
+    totalSlides: number;
+
+    constructor() {
+      this.track = document.getElementById('carousel-track');
+      this.prevBtn = document.getElementById('carousel-prev');
+      this.nextBtn = document.getElementById('carousel-next');
+      this.dots = document.querySelectorAll('.carousel-dot');
+      this.slides = document.querySelectorAll('.carousel-slide');
+      this.currentSlide = 0;
+      this.totalSlides = this.slides.length;
+
+      this.init();
+    }
+
+    init() {
+      if (this.totalSlides <= 1) {
+        // Hide navigation if only one slide
+        this.prevBtn?.classList.add('hidden');
+        this.nextBtn?.classList.add('hidden');
+        this.dots.forEach(dot => dot.classList.add('hidden'));
+        return;
+      }
+
+      this.bindEvents();
+      this.updateCarousel();
+    }
+
+    bindEvents() {
+      this.prevBtn?.addEventListener('click', () => this.prevSlide());
+      this.nextBtn?.addEventListener('click', () => this.nextSlide());
+      
+      this.dots.forEach((dot: HTMLElement, index: number) => {
+        dot.addEventListener('click', () => this.goToSlide(index));
+      });
+
+      // Touch/swipe support
+      let startX = 0;
+      let startY = 0;
+      let endX = 0;
+      let endY = 0;
+
+      this.track?.addEventListener('touchstart', (e: TouchEvent) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      });
+
+      this.track?.addEventListener('touchend', (e: TouchEvent) => {
+        endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
+        this.handleSwipe(startX, startY, endX, endY);
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'ArrowLeft') this.prevSlide();
+        if (e.key === 'ArrowRight') this.nextSlide();
+      });
+    }
+
+    handleSwipe(startX: number, startY: number, endX: number, endY: number) {
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+      const minSwipeDistance = 50;
+
+      // Only handle horizontal swipes
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          this.prevSlide();
+        } else {
+          this.nextSlide();
+        }
+      }
+    }
+
+    prevSlide() {
+      this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
+      this.updateCarousel();
+    }
+
+    nextSlide() {
+      this.currentSlide = this.currentSlide === this.totalSlides - 1 ? 0 : this.currentSlide + 1;
+      this.updateCarousel();
+    }
+
+    goToSlide(index: number) {
+      this.currentSlide = index;
+      this.updateCarousel();
+    }
+
+    updateCarousel() {
+      if (!this.track) return;
+
+      const translateX = -this.currentSlide * 100;
+      this.track.style.transform = `translateX(${translateX}%)`;
+
+      // Update dots
+      this.dots.forEach((dot: HTMLElement, index: number) => {
+        dot.classList.toggle('active', index === this.currentSlide);
+      });
+
+      // Update button states
+      this.prevBtn?.classList.toggle('opacity-50', this.currentSlide === 0);
+      this.nextBtn?.classList.toggle('opacity-50', this.currentSlide === this.totalSlides - 1);
+    }
+  }
+
+  // Initialize carousel when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    new ProjectCarousel();
+  });
+</script>
