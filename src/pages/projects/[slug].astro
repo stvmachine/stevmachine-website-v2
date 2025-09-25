@@ -15,7 +15,20 @@ interface PageProps {
 
 const { project } = Astro.props as PageProps;
 
-const { name, summary, image, linkPreview, linkMobileApp } = project;
+const {
+  name,
+  summary,
+  longSummary,
+  challenges,
+  results,
+  role,
+  image,
+  screenshots = [],
+  implementationDetails,
+  linkPreview,
+  linkMobileApp,
+  tech = [],
+} = project;
 ---
 
 <ProjectLayout>
@@ -145,167 +158,210 @@ const { name, summary, image, linkPreview, linkMobileApp } = project;
     </header>
 
     <!-- Project Details -->
-    <section class="grid gap-8 lg:grid-cols-2">
-      <div
-        class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8"
-      >
-        <h2 class="mb-6 text-2xl font-semibold text-white">Project Overview</h2>
-        <div class="space-y-4 leading-relaxed text-gray-300">
-          <p>
-            {summary}
-          </p>
-          <p>
-            This project showcases modern web development practices with a focus
-            on user experience, performance optimization, and scalable
-            architecture. Built with cutting-edge technologies to deliver
-            exceptional results.
-          </p>
-        </div>
-      </div>
-
-      <div
-        class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8"
-      >
-        <h2 class="mb-6 text-2xl font-semibold text-white">
-          Technologies Used
-        </h2>
-        <div class="flex flex-wrap gap-3">
-          <span
-            class="rounded-full border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-600"
-            >React</span
-          >
-          <span
-            class="rounded-full border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-600"
-            >TypeScript</span
-          >
-          <span
-            class="rounded-full border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-600"
-            >Node.js</span
-          >
-          <span
-            class="rounded-full border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-600"
-            >AWS</span
-          >
-          <span
-            class="rounded-full border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-600"
-            >Tailwind CSS</span
-          >
-          <span
-            class="rounded-full border border-gray-600 bg-gray-700 px-4 py-2 text-sm text-white transition-colors hover:bg-gray-600"
-            >PostgreSQL</span
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- Project Showcase Gallery -->
-    <section class="space-y-8">
-      <div class="text-center">
-        <h2 class="mb-4 font-serif text-3xl font-bold text-white md:text-4xl">
-          Project Showcase
-        </h2>
-        <p class="mx-auto max-w-2xl text-xl text-gray-400">
-          Visual highlights and key features of the project
-        </p>
-      </div>
-
-      {
-        (() => {
-          const items = SITE_CONTENT.projects
-            .filter((p) => p.slug && p.slug !== project.slug)
-            .slice(0, 6);
-          return (
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {items.map((p) => (
-                <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 transition-all duration-300 hover:border-gray-600 hover:shadow-2xl hover:shadow-purple-500/10">
-                  <a
-                    href={`/projects/${p.slug}`}
-                    aria-label={`${p.name} details`}
-                  >
-                    <div class="relative aspect-video overflow-hidden">
-                      <img
-                        src={p.image}
-                        alt={p.name}
-                        width="600"
-                        height="350"
-                        class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    </div>
-                  </a>
-                  <div class="p-6">
-                    <h3 class="mb-2 text-lg font-semibold text-white transition-colors duration-300 group-hover:text-purple-300">
-                      <a href={`/projects/${p.slug}`} class="hover:underline">
-                        {p.name}
-                      </a>
-                    </h3>
-                    <p class="line-clamp-2 text-sm leading-relaxed text-gray-300">
-                      {p.summary}
-                    </p>
+    {/* Project Screenshots */}
+    {
+      screenshots.length > 0 && (
+        <section class="space-y-8">
+          <h2 class="text-2xl font-semibold text-white">Screenshots</h2>
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {screenshots.map((screenshot) => (
+              <div class="group relative overflow-hidden rounded-xl border border-gray-700 bg-gray-900 transition-all hover:border-purple-500">
+                <img
+                  src={screenshot.url}
+                  alt={screenshot.alt}
+                  class="h-64 w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                {screenshot.caption && (
+                  <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white opacity-0 transition-opacity group-hover:opacity-100">
+                    <p class="text-sm">{screenshot.caption}</p>
                   </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
-                  <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </article>
-              ))}
-            </div>
-          );
-        })()
-      }
-    </section>
-
-    <!-- Call to Action -->
-    <section
-      class="rounded-3xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center"
-    >
-      <div class="mx-auto max-w-2xl space-y-6">
-        <h3 class="text-3xl font-bold text-white">
-          Interested in {name}?
-        </h3>
-        <p class="text-lg leading-relaxed text-gray-300">
-          Want to learn more about this project or discuss similar work? I'd
-          love to share more details about the development process and technical
-          decisions.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 pt-4">
-          <a
-            href="/#projects"
-            class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:from-purple-700 hover:to-pink-700 hover:shadow-lg hover:shadow-purple-500/25"
-          >
-            <svg
-              class="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"></path>
-            </svg>
-            Back to Projects
-          </a>
-          <a
-            href="mailto:campos.esteban@gmail.com"
-            class="inline-flex items-center gap-2 rounded-full bg-gray-700 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600"
-          >
-            <svg
-              class="h-4 w-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            Get in Touch
-          </a>
+    <section class="grid gap-8 lg:grid-cols-2">
+      <div class="space-y-8">
+        <div
+          class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8"
+        >
+          <h2 class="mb-6 text-2xl font-semibold text-white">
+            Project Overview
+          </h2>
+          {
+            longSummary && (
+              <div class="prose prose-invert max-w-none">
+                <div class="whitespace-pre-line">{longSummary}</div>
+              </div>
+            )
+          }
         </div>
+
+      </div>
+
+      <div class="space-y-8">
+        {
+          role && (
+            <div class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8">
+              <h3 class="mb-2 text-sm font-medium text-gray-400">My Role</h3>
+              <p class="text-lg font-medium text-white">{role}</p>
+            </div>
+          )
+        }
+
+        {
+          tech && tech.length > 0 && (
+            <div class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8">
+              <h3 class="mb-4 text-lg font-medium text-white">
+                Technologies Used
+              </h3>
+              <div class="flex flex-wrap gap-2">
+                {tech.map((item) => (
+                  <span class="rounded-full bg-gray-700 px-3 py-1 text-sm text-gray-200">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        {
+          challenges && (
+            <div class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8">
+              <h3 class="mb-3 text-lg font-medium text-white">Challenges</h3>
+              <div class="prose prose-invert max-w-none text-gray-300">
+                <p>{challenges}</p>
+              </div>
+            </div>
+          )
+        }
+
+        {
+          results && (
+            <div class="rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-8">
+              <h3 class="mb-3 text-lg font-medium text-white">Results</h3>
+              <div class="prose prose-invert max-w-none text-gray-300">
+                <p>{results}</p>
+              </div>
+            </div>
+          )
+        }
       </div>
     </section>
   </article>
+
+  <!-- Project Showcase Gallery -->
+  <section class="space-y-8">
+    <div class="text-center">
+      <h2 class="mb-4 font-serif text-3xl font-bold text-white md:text-4xl">
+        Project Showcase
+      </h2>
+      <p class="mx-auto max-w-2xl text-xl text-gray-400">
+        Visual highlights and key features of the project
+      </p>
+    </div>
+
+    {
+      (() => {
+        const items = SITE_CONTENT.projects
+          .filter((p) => p.slug && p.slug !== project.slug)
+          .slice(0, 6);
+        return (
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {items.map((p) => (
+              <article class="group relative overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 transition-all duration-300 hover:border-gray-600 hover:shadow-2xl hover:shadow-purple-500/10">
+                <a
+                  href={`/projects/${p.slug}`}
+                  aria-label={`${p.name} details`}
+                >
+                  <div class="relative aspect-video overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      width="600"
+                      height="350"
+                      class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  </div>
+                </a>
+                <div class="p-6">
+                  <h3 class="mb-2 text-lg font-semibold text-white transition-colors duration-300 group-hover:text-purple-300">
+                    <a href={`/projects/${p.slug}`} class="hover:underline">
+                      {p.name}
+                    </a>
+                  </h3>
+                  <p class="line-clamp-2 text-sm leading-relaxed text-gray-300">
+                    {p.summary}
+                  </p>
+                </div>
+
+                <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </article>
+            ))}
+          </div>
+        );
+      })()
+    }
+  </section>
+
+  <!-- Call to Action -->
+  <section
+    class="rounded-3xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 p-12 text-center"
+  >
+    <div class="mx-auto max-w-2xl space-y-6">
+      <h3 class="text-3xl font-bold text-white">
+        Interested in {name}?
+      </h3>
+      <p class="text-lg leading-relaxed text-gray-300">
+        Want to learn more about this project or discuss similar work? I'd love
+        to share more details about the development process and technical
+        decisions.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 pt-4">
+        <a
+          href="/#projects"
+          class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:from-purple-700 hover:to-pink-700 hover:shadow-lg hover:shadow-purple-500/25"
+        >
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Projects
+        </a>
+        <a
+          href="mailto:campos.esteban@gmail.com"
+          class="inline-flex items-center gap-2 rounded-full bg-gray-700 px-8 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-gray-600"
+        >
+          <svg
+            class="h-4 w-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            ></path>
+          </svg>
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
 </ProjectLayout>

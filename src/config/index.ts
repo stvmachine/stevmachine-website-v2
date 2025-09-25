@@ -104,23 +104,80 @@ export const SITE_CONTENT: SiteContent = {
   projects: [
     {
       name: "Nura - System Backend Upgrade and React Storefront",
-      slug: "nura-system-backend-upgrade",
+      slug: "nura",
       summary:
-        "Migration and scaling of their legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
+        "Migration and scaling of Nura's legacy backend platform based on Ruby on Rails. Participated in early discussions, planning, and execution of the migration without impacting current users. Updated the storefront platform built with React, GatsbyJS, Stripe, and GraphQL with international shipping capabilities.",
+      longSummary: `Nura is a revolutionary audio technology company that creates personalized headphones and earbuds that adapt to your unique hearing profile. As part of the development team, I was responsible for modernizing their e-commerce platform and backend systems.
+
+Key Contributions:
+- Led the migration of their legacy Ruby on Rails backend to a more scalable architecture
+- Implemented a new React and Gatsby storefront with international shipping capabilities
+- Integrated with Contentful for content management and Stripe for payments
+- Optimized the GraphQL API for better performance and reliability
+- Set up CI/CD pipelines and infrastructure as code using AWS and Terraform
+`,
+      challenges: `The main challenge was migrating the legacy system without any downtime or impact on existing customers. This required careful planning, feature flagging, and extensive testing. We also had to handle complex inventory and shipping requirements for international markets.`,
+      role: "Senior Full Stack Developer",
       linkPreview: "https://www.nurasound.com/",
       linkMobileApp: "https://www.nurasound.com/",
-      image: "/nurasound-storefront.png",
+      image: "/nura/nura-homepage.png",
       tech: [
-        "React",
-        "GatsbyJS",
-        "Stripe",
+        "React 18",
+        "TypeScript",
+        "Gatsby",
+        "Tailwind CSS",
+        "Contentful",
         "GraphQL",
-        "Ruby on Rails",
         "AWS",
         "Docker",
-        "Terraform",
+        "Ruby",
+        "Ruby on Rails",
         "PostgreSQL",
+        "Stripe",
+        "i18next",
       ],
+      screenshots: [
+        {
+          url: "/nura/nura-homepage.png",
+          alt: "Nura Homepage",
+          caption: "Homepage showcasing featured products and hero banner",
+        },
+        {
+          url: "/nura/nura-product.png",
+          alt: "Product Detail Page",
+          caption:
+            "Product page with customization options and add to cart functionality",
+        },
+        {
+          url: "/nura/nura-checkout.png",
+          alt: "Checkout Process",
+          caption: "Multi-step checkout with international shipping options",
+        },
+      ],
+      implementationDetails: {
+        i18n: {
+          regions: ["North America", "Europe", "Asia Pacific", "Australia"],
+          languages: ["English", "French", "German", "Japanese", "Chinese"],
+          frameworks: ["i18next", "react-i18next"],
+        },
+        payment: {
+          provider: "Stripe",
+          features: [
+            "Multi-currency support",
+            "Subscription billing",
+            "Tax calculation",
+            "3D Secure authentication",
+            "Local payment methods",
+          ],
+          currencies: ["USD", "EUR", "GBP", "AUD", "JPY", "CNY"],
+        },
+        otherDetails: [
+          "Responsive design for all device sizes",
+          "Progressive Web App (PWA) capabilities",
+          "SEO optimized with dynamic meta tags",
+          "Performance optimized with code splitting and lazy loading",
+        ],
+      },
     },
     {
       name: "Mindset Health - Nerva & Finito",
@@ -134,17 +191,14 @@ export const SITE_CONTENT: SiteContent = {
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
       tech: [
-        "Ionic",
-        "Angular",
-        "Cordova",
-        "Android",
-        "iOS",
-        "Firebase",
-        "Test-Driven Development",
+        "React Native",
+        "TypeScript",
+        "Jest",
+        "React Testing Library",
+        "AWS Amplify",
         "CI/CD",
-        "A/B Testing",
         "Fastlane",
-        "Git",
+        "GitHub Actions",
       ],
     },
     {
@@ -156,15 +210,7 @@ export const SITE_CONTENT: SiteContent = {
       linkMobileApp:
         "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       image: "/vicsuper-mobile-app.png",
-      tech: [
-        "Ionic",
-        "Angular",
-        "Android",
-        "iOS",
-        "Google Analytics",
-        "Karma",
-        "Git",
-      ],
+      tech: ["Ionic", "Angular", "TypeScript", "Node.js", "Jest", "Detox"],
     },
     {
       name: "Good on You - Mobile App",
@@ -178,14 +224,15 @@ export const SITE_CONTENT: SiteContent = {
       image: "/goodonyou-mobile.png",
       tech: [
         "React Native",
-        "Typescript",
-        "NodeJS",
+        "TypeScript",
+        "Node.js",
         "GraphQL",
-        "Android",
-        "iOS",
-        "Google Analytics",
-        "Fastlane",
-        "Git",
+        "Apollo Client",
+        "React Query",
+        "Jest",
+        "Detox",
+        "Redux Toolkit",
+        "GitHub Actions",
       ],
     },
     {
@@ -195,6 +242,16 @@ export const SITE_CONTENT: SiteContent = {
         "Revamped Good On You mobile app and website for ethical fashion ratings.",
       linkPreview: "https://directory.goodonyou.eco/",
       image: "/goodonyou-directory.png",
+      tech: [
+        "React",
+        "React Query",
+        "TypeScript",
+        "Apollo Client",
+        "GraphQL",
+        "NodeJS",
+        "GraphQL",
+        "Github",
+      ],
     },
     {
       name: "Banco de Chile Apps",
@@ -205,7 +262,17 @@ export const SITE_CONTENT: SiteContent = {
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       linkAppStore: "https://apps.apple.com/cl/app/mi-banco-chile/id1516872542",
       image: "/bancodechile-mobile.png",
-      tech: ["React", "NodeJS", "GraphQL", "Git"],
+      tech: [
+        "Ionic",
+        "Angular",
+        "Java",
+        "iOS",
+        "Android",
+        "TDD",
+        "CI/CD",
+        "Fastlane",
+        "GitHub Actions",
+      ],
     },
   ],
   about: {

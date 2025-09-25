@@ -30,10 +30,34 @@ export interface ExperienceProps {
   summary: string | string[];
 }
 
+export interface ProjectImage {
+  url: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface ProjectProps {
   name: string;
   summary: string;
+  longSummary?: string;
+  challenges?: string;
+  results?: string;
+  role?: string;
   image: string;
+  screenshots?: ProjectImage[];
+  implementationDetails?: {
+    i18n?: {
+      regions?: string[];
+      languages?: string[];
+      frameworks?: string[];
+    };
+    payment?: {
+      provider?: string;
+      features?: string[];
+      currencies?: string[];
+    };
+    otherDetails?: string[];
+  };
   linkPreview?: string;
   linkMobileApp?: string;
   linkAppStore?: string;
