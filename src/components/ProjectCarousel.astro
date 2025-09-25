@@ -96,6 +96,11 @@ const { screenshots, projectName } = Astro.props;
     overflow: hidden;
     border-radius: 1rem;
     height: 40rem;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   .carousel-track {
@@ -213,10 +218,23 @@ const { screenshots, projectName } = Astro.props;
     background-color: #8b5cf6;
   }
 
-  /* Hide navigation on mobile for better UX */
+  /* Mobile styles */
   @media (max-width: 768px) {
     .carousel-nav {
       display: none;
+    }
+    
+    .carousel-wrapper {
+      height: 60vh;
+      max-height: 500px;
+    }
+    
+    .carousel-slide {
+      touch-action: pan-y;
+    }
+    
+    .carousel-track.dragging {
+      transition: none;
     }
   }
 </style>
@@ -264,21 +282,55 @@ const { screenshots, projectName } = Astro.props;
         dot.addEventListener('click', () => this.goToSlide(index));
       });
 
-      // Touch/swipe support
-      let startX = 0;
-      let startY = 0;
-      let endX = 0;
-      let endY = 0;
+      // Enhanced touch/swipe support
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+      let isDragging = false;
 
-      this.track?.addEventListener('touchstart', (e: TouchEvent) => {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-      });
+      const handleTouchStart = (e: TouchEvent) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isDragging = true;
+        this.track?.classList.add('dragging');
+        e.preventDefault();
+      };
 
-      this.track?.addEventListener('touchend', (e: TouchEvent) => {
-        endX = e.changedTouches[0].clientX;
-        endY = e.changedTouches[0].clientY;
-        this.handleSwipe(startX, startY, endX, endY);
+      const handleTouchMove = (e: TouchEvent) => {
+        if (!isDragging) return;
+        touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY;
+        e.preventDefault();
+      };
+
+      const handleTouchEnd = (e: TouchEvent) => {
+        if (!isDragging) return;
+        
+        const deltaX = touchEndX - touchStartX;
+        const deltaY = touchEndY - touchStartY;
+        
+        // Only handle horizontal swipes
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          e.preventDefault(); // Prevent default touch behavior
+          if (deltaX > 50) {
+            this.prevSlide();
+          } else if (deltaX < -50) {
+            this.nextSlide();
+          }
+        }
+        
+        isDragging = false;
+        this.track?.classList.remove('dragging');
+      };
+
+      // Add touch event listeners
+      this.track?.addEventListener('touchstart', handleTouchStart, { passive: false });
+      this.track?.addEventListener('touchmove', handleTouchMove, { passive: false });
+      this.track?.addEventListener('touchend', handleTouchEnd, { passive: false });
+      this.track?.addEventListener('touchcancel', () => {
+        isDragging = false;
+        this.track?.classList.remove('dragging');
       });
 
       // Keyboard navigation

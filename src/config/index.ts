@@ -434,7 +434,7 @@ Key Contributions:
   about: {
     description: `
       Senior Software Developer at Ackama with 10+ years building scalable applications. I specialize in React, TypeScript, Ruby on Rails, and AWS cloud infrastructure.
-      When I'm not coding, you'll find me playing board games, singing in choirs, or hanging out with my dog Balu.
+      When I'm not coding, you'll find me playing board games, singing in choirs, playing with my two kids or hanging out with my dog Balu.
     `,
     image: "/profilepic.jpg",
   },
