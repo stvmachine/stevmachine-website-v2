@@ -160,19 +160,20 @@ const {
           </div>
 
           <!-- Project Image -->
-          <div class="relative">
+          <div class="relative aspect-video max-w-4xl mx-auto">
             <div
-              class="relative overflow-hidden rounded-2xl border border-gray-600 shadow-2xl"
+              class="relative h-full w-full overflow-hidden rounded-2xl border border-gray-600 shadow-2xl"
             >
               <img
                 src={image}
                 width="800"
                 height="500"
                 alt={name}
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                style="transform-origin: center;"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+                class="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent"
               >
               </div>
             </div>

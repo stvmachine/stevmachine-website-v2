@@ -283,7 +283,7 @@ Key Contributions:
         "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       linkAppStore:
         "https://apps.apple.com/us/app/good-on-you-ethical-ratings/id1044017998",
-      image: "/goodonyou-mobile/goodonyou-mobile-1.png",
+      image: "/goodonyou-mobile/goodonyou-hero-slug.png",
       tech: [
         "React Native",
         "TypeScript",
