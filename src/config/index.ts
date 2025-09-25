@@ -119,7 +119,6 @@ Key Contributions:
       challenges: `The main challenge was migrating the legacy system without any downtime or impact on existing customers. This required careful planning, feature flagging, and extensive testing. We also had to handle complex inventory and shipping requirements for international markets.`,
       role: "Senior Full Stack Developer",
       linkPreview: "https://www.nurasound.com/",
-      linkMobileApp: "https://www.nurasound.com/",
       image: "/nura/nura-homepage.png",
       tech: [
         "React 18",
@@ -184,10 +183,20 @@ Key Contributions:
       slug: "mindset-health",
       summary:
         "Contributed to several features and maintenance across the family of apps at Mindset Health. Special focus on their Hypnotherapy program, improving animations and UI components.",
+      longSummary: `Mindset Health provides digital hypnotherapy programs for chronic conditions. I worked on their flagship apps Nerva (for IBS) and Finito (for smoking cessation), focusing on delivering therapeutic content through engaging mobile experiences.
+
+Key Contributions:
+- Enhanced the hypnotherapy audio player with smooth animations and progress tracking
+- Undergo multiple A/B testing to improve user experience
+- Implemented and contributed on multiple features and maintenance
+- Implemented new theme colors, logo and push notifications updates
+`,
+      challenges: `The main challenge was ensuring smooth playback of hypnotherapy sessions while maintaining app performance. We also had to handle complex subscription states and offline functionality for users in areas with poor connectivity.`,
+      role: "Senior Mobile Developer",
       linkPreview: "https://www.nervahealth.com/",
       linkAppStore:
         "https://apps.apple.com/us/app/nerva-ibs-gut-hypnotherapy/id1467398796",
-      linkMobileApp:
+      linkGooglePlay:
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/nerva.webp",
       tech: [
@@ -206,18 +215,54 @@ Key Contributions:
       slug: "vicsuper-mobile-app",
       summary:
         "Project-based on Ionic/Angular and Cordova. Allows clients to check their superannuation associated with VicSuper. Available for Android and iOS with continuous integration.",
+      longSummary: `The VicSuper mobile app provides members with secure access to their superannuation accounts, allowing them to track their balance, make contributions, and manage their investments on the go.
+
+Key Contributions:
+- Developed cross-platform mobile app using Ionic and Angular
+- Implemented secure authentication and biometric login
+- Integrated with VicSuper's backend APIs for real-time account data
+- Built custom charts for investment performance visualization
+- Set up automated testing with Jest and Detox
+- Implemented CI/CD pipelines for both App Store and Play Store deployments
+`,
+      challenges: `The main challenge was ensuring the app met strict security requirements for financial data while maintaining a smooth user experience. We also had to handle complex financial calculations and display them in an intuitive way.`,
+      role: "Frontend Developer",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
-      linkMobileApp:
-        "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       image: "/vicsuper-mobile-app.png",
       tech: ["Ionic", "Angular", "TypeScript", "Node.js", "Jest", "Detox"],
+      implementationDetails: {
+        security: {
+          features: [
+            "Biometric authentication",
+            "Secure storage",
+            "Session timeout",
+          ],
+        },
+        features: [
+          "Account balance and transactions",
+          "Investment performance tracking",
+          "Contribution calculator",
+          "Quality and security by bank standards",
+          "Push notifications",
+        ],
+      },
     },
     {
       name: "Good on You - Mobile App",
       slug: "good-on-you-mobile",
       summary:
         "Implemented UI improvements and feature delivery across the iOS and Android apps. Focus on performance, UX polish, and release stability.",
-      linkMobileApp:
+      longSummary: `Good On You is the world's leading source for brand ratings, articles, and guides on ethical and sustainable fashion. The mobile app helps users discover ethical brands and make conscious shopping decisions.
+
+Key Contributions:
+- Improved visual, data fetching and state management
+- Implemented a new design system with reusable UI components
+- Optimized app performance, reducing load times by 40%
+- Improved CI/CD pipelines for faster and more reliable releases
+`,
+      challenges: `The main challenge was handling the complex filtering system for brand ratings while maintaining smooth performance. We also had to ensure the app worked well with a large and frequently updated database of brands and products.`,
+      role: "Senior Mobile Developer",
+      linkGooglePlay:
         "https://apps.apple.com/au/app/good-on-you-ethical-ratings/id1044017998",
       linkAppStore:
         "https://apps.apple.com/us/app/good-on-you-ethical-ratings/id1044017998",
@@ -234,37 +279,87 @@ Key Contributions:
         "Redux Toolkit",
         "GitHub Actions",
       ],
+      implementationDetails: {
+        features: [
+          "Brand and product search with filters",
+          "Ethical rating system",
+          "Personalized recommendations",
+          "Saved items and collections",
+          "Dark mode",
+        ],
+        performance: {
+          optimizations: [
+            "Code splitting",
+            "Image optimization",
+            "List virtualization",
+            "Optimistic UI updates",
+          ],
+        },
+      },
     },
     {
       name: "Good on You - Website",
       slug: "good-on-you",
       summary:
-        "Revamped Good On You mobile app and website for ethical fashion ratings.",
+        "Revamped Good On You's web platform to provide a seamless experience for discovering ethical fashion brands and sustainable shopping.",
+      longSummary: `The Good On You website serves as a comprehensive directory for ethical fashion brands, providing detailed ratings, articles, and guides on sustainable fashion. The platform helps consumers make informed purchasing decisions based on brands' environmental impact, labor conditions, and animal welfare practices.
+
+Key Contributions:
+- Led the frontend architecture redesign using React for improved SEO and performance
+- Implemented a responsive design system
+- Optimized the brand directory with advanced filtering and search capabilities
+- Integrated with headless CMS for content management
+- Implemented analytics
+`,
+      challenges: `The main challenge was handling the complex filtering system for thousands of brands while maintaining fast page loads. We also had to ensure the site was accessible and performed well across all devices and connection speeds.`,
+      role: "Frontend Tech Lead",
       linkPreview: "https://directory.goodonyou.eco/",
       image: "/goodonyou-directory.png",
       tech: [
         "React",
-        "React Query",
         "TypeScript",
+        "React Query",
         "Apollo Client",
         "GraphQL",
-        "NodeJS",
-        "GraphQL",
-        "Github",
+        "Headless CMS",
+        "GitHub Actions",
       ],
+      implementationDetails: {
+        seo: {
+          features: [
+            "SSG (Static Site Generation)",
+            "Stadistics and analytics integration",
+          ],
+        },
+      },
     },
     {
       name: "Banco de Chile Apps",
       slug: "banco-de-chile-apps",
       summary:
         "A family of hybrid applications offered by Banco de Chile: MiBanco, MiCuenta, MiPago, MiCrédito, MiPass among others. All applications are based on Ionic and have versions for Android and iOS.",
-      linkMobileApp:
+      longSummary: `Developed and maintained a suite of mobile banking applications for Banco de Chile, one of the largest banks in Chile. The apps provide customers with secure access to their accounts, payments, transfers, and other banking services.
+
+Key Applications:
+- MiBanco: Main banking app for account management
+- MiPago: Bill payments and transfers
+- MiCrédito: Loan and credit card management
+- MiPass: Digital wallet and contactless payments
+
+Key Contributions:
+- Led the development of multiple features in the ecosystem
+- Wrote several tests and ensured secure and well tested feature deployment
+`,
+      challenges: `The main challenge was ensuring the highest level of security while maintaining a smooth user experience. We had to comply with strict banking regulations and protect sensitive financial data. Performance optimization was also critical, as many users in Chile have older Android devices with limited resources.`,
+      role: "Mobile Development Lead",
+      linkGooglePlay:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       linkAppStore: "https://apps.apple.com/cl/app/mi-banco-chile/id1516872542",
       image: "/bancodechile-mobile.png",
       tech: [
         "Ionic",
         "Angular",
+        "Cordova",
         "Java",
         "iOS",
         "Android",
@@ -273,6 +368,16 @@ Key Contributions:
         "Fastlane",
         "GitHub Actions",
       ],
+      implementationDetails: {
+        features: [
+          "Account balance and transactions",
+          "Bill payments and transfers",
+          "QR code payments",
+          "Card management",
+          "ATM and branch locator",
+          "Customer support chat",
+        ],
+      },
     },
   ],
   about: {

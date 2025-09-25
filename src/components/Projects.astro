@@ -29,7 +29,7 @@ const { projects } = Astro.props;
             summary,
             image,
             linkPreview,
-            linkMobileApp,
+            linkGooglePlay,
             linkAppStore,
             slug,
             tech = [],
@@ -130,7 +130,7 @@ const { projects } = Astro.props;
                       },
                       {
                         type: "playStore",
-                        url: linkMobileApp,
+                        url: linkGooglePlay,
                         label: "Play Store",
                       },
                     ].filter((link) => link.url);
@@ -142,19 +142,31 @@ const { projects } = Astro.props;
                       appStore: (
                         <svg
                           class="h-4 w-4"
-                          fill="currentColor"
+                          fill="none"
+                          stroke="currentColor"
                           viewBox="0 0 24 24"
                         >
-                          <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 1.5a8.5 8.5 0 100 17 8.5 8.5 0 000-17zm0 2.5a6 6 0 110 12 6 6 0 010-12z" />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                          />
                         </svg>
                       ),
                       playStore: (
                         <svg
                           class="h-4 w-4"
-                          fill="currentColor"
+                          fill="none"
+                          stroke="currentColor"
                           viewBox="0 0 24 24"
                         >
-                          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.979 10.4l4.198-4.2a1 1 0 00.214-1.09 1 1 0 00-.214-.303l-1.4-1.4a1 1 0 00-1.414 0l-4.2 4.2 1.4 1.4a1 1 0 001.414 0zM6.6 2.2l1.4 1.4-4.2 4.2a1 1 0 000 1.414l4.2 4.2-1.4 1.4-4.2-4.2a1 1 0 00-.303-.214A1 1 0 002 9.4v-1.4a1 1 0 01.214-.61L6.6 2.2zm10.8 19.6l-1.4-1.4 4.2-4.2a1 1 0 000-1.414l-4.2-4.2 1.4-1.4 4.2 4.2a1 1 0 01.214.61v1.4a1 1 0 01-.214.61l-4.2 4.2z" />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                          />
                         </svg>
                       ),
                     };

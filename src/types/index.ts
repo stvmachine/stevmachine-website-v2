@@ -45,21 +45,9 @@ export interface ProjectProps {
   role?: string;
   image: string;
   screenshots?: ProjectImage[];
-  implementationDetails?: {
-    i18n?: {
-      regions?: string[];
-      languages?: string[];
-      frameworks?: string[];
-    };
-    payment?: {
-      provider?: string;
-      features?: string[];
-      currencies?: string[];
-    };
-    otherDetails?: string[];
-  };
+  implementationDetails?: Record<string, object>;
   linkPreview?: string;
-  linkMobileApp?: string;
+  linkGooglePlay?: string;
   linkAppStore?: string;
   slug?: string;
   tech?: string[];
