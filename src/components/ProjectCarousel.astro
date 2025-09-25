@@ -101,12 +101,15 @@ const { screenshots, projectName } = Astro.props;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    display: flex;
+    align-items: center;
   }
 
   .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    height: 40rem;
+    height: 100%;
+    align-items: center;
   }
 
   .carousel-slide {
@@ -226,15 +229,39 @@ const { screenshots, projectName } = Astro.props;
     
     .carousel-wrapper {
       height: 60vh;
-      max-height: 500px;
+      min-height: 400px;
+      max-height: 80vh;
+      display: flex;
+      align-items: center;
     }
     
     .carousel-slide {
       touch-action: pan-y;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-slide-content {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .carousel-image {
+      max-height: 100%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
     }
     
     .carousel-track.dragging {
       transition: none;
+      height: 100%;
     }
   }
 </style>
