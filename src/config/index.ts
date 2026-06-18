@@ -31,7 +31,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Esteban Campos",
     specialty: "Senior Software Developer",
     summary:
-      "Senior Software Developer at Ackama, based in Melbourne, Australia. I specialize in full-stack development with React, React Native, TypeScript, Ruby on Rails, and cloud infrastructure on AWS.",
+      "Senior Software Engineer with 10+ years' experience building scalable web and mobile platforms, cloud infrastructure, and AI-native workflows, emphasizing quality, reliability, and developer productivity.",
     email: "campos.esteban@gmail.com",
   },
   experience: [
@@ -592,8 +592,8 @@ Key Contributions:
   ],
   about: {
     description: `
-      Senior Software Developer with 10+ years building scalable applications. I specialize in React, TypeScript, Ruby on Rails, and AWS cloud infrastructure.
-      When I'm not coding, you'll find me playing board games, singing in choirs, playing with my two kids or hanging out with my dog Balu.
+    Senior Software Engineer with 10+ years' experience building scalable web and mobile platforms, cloud infrastructure, and AI-native workflows.
+    When I'm not coding, you'll find me playing board games, singing in choirs, playing with my two kids or hanging out with my dog Balu.
     `,
     image: "/profilepic.jpg",
   },
