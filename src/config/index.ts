@@ -3,8 +3,10 @@ import type { SiteConfig, SiteContent } from "../types";
 export const SITE_CONFIG: SiteConfig = {
   title: "Esteban Campos — Senior Software Developer",
   author: "Esteban Campos Valenzuela",
-  description:
-    "Senior Software Developer at Ackama, based in Melbourne, Australia. I specialize in full-stack development with React, React Native, TypeScript, Ruby on Rails, and cloud infrastructure on AWS.",
+  description: `Senior Software Engineer with 10+ years of experience building and operating large-scale web and mobile platforms across healthcare, energy, government, financial services, and enterprise domains. Master of Informatics Engineering.
+    Experienced in developer tooling, monorepos, CI/CD systems, cloud infrastructure, and full-stack application development. I have designed and maintained scalable build pipelines, automated delivery workflows, and cloud-native services using AWS, Docker, Terraform, and modern TypeScript ecosystems.
+    My background spans React, React Native, Node.js, GraphQL, Python/Django, Ruby on Rails, and distributed systems, with a strong focus on engineering quality, reliability, and developer productivity. I practice test-driven development by default and have recently embraced AI-native engineering workflows using Claude, OpenCode, OpenSpec, and Model Context Protocols (MCPs), accelerating design and implementation while maintaining high standards for maintainability and operational excellence.
+`,
   lang: "en",
   siteLogo: "/profilepic.jpg",
   navLinks: [
@@ -34,23 +36,28 @@ export const SITE_CONTENT: SiteContent = {
   },
   experience: [
     {
-      company: "Ackama",
-      position: "Senior Software Developer",
-      startDate: "Dec 2023",
+      company: "Medtasker",
+      position: "Senior Frontend Engineer",
+      startDate: "Jan 2025",
       endDate: "Present",
       summary: [
-        "Developed full-stack solutions for web and hybrid mobile applications, collaborating with product teams to deliver maintainable, scalable systems",
-        "Technologies: Node.js, React, React Native, Vue, NextJS, Gatsby, Ruby on Rails, Python (Django), AWS, Docker, Terraform, GraphQL, PostgreSQL, MongoDB",
-        "Mentored junior and mid-level developers, fostering team knowledge sharing and best practices",
+        "Architect and maintain web and mobile applications used within the healthcare sector.",
+        "Design and evolve development workflows, build pipelines, and release processes to improve engineering velocity and reliability.",
+        "Leverage AI-native tooling (Claude, OpenCode, OpenSpec and MCPs) to accelerate full-stack development and integration work.",
+        "Drive technical decisions around component architecture, infrastructure, and cross-platform consistency.",
+        "Collaborate closely with engineers and product teams to deliver maintainable, production-grade systems.",
+        "Tech stack: React, React Native, Angular, TypeScript, Node.js, AWS, CI/CD, Docker, Claude, OpenCode.",
       ],
     },
     {
       company: "Ackama",
-      position: "Software Developer",
+      position: "Senior Software Developer",
       startDate: "Jul 2018",
-      endDate: "Dec 2023",
+      endDate: "Dec 2025",
       summary: [
-        "Prior to my promotion to Senior Developer, I led impactful hybrid mobile projects and delivered solutions across varied client requirements.",
+        "Developed full-stack solutions for web and hybrid mobile applications, collaborating with product teams to deliver maintainable, scalable systems",
+        "Technologies: Node.js, React, React Native, Vue, NextJS, Gatsby, Ruby on Rails, Python (Django), AWS, Docker, Terraform, GraphQL, PostgreSQL, MongoDB",
+        "Mentored junior and mid-level developers, fostering team knowledge sharing and best practices",
       ],
     },
     {
@@ -102,6 +109,121 @@ export const SITE_CONTENT: SiteContent = {
     },
   ],
   projects: [
+    {
+      name: "MedTasker - Healthcare Communication Platform",
+      slug: "medtasker",
+      summary:
+        "React Native mobile app and React web application that helps hospitals replace pagers and fragmented communication with secure, trackable clinical messaging and task management.",
+      longSummary: `MedTasker is a mobile-first communication and task-management platform designed for hospitals and clinical teams. It ensures the right message reaches the right clinician the first time, replacing pagers, phone tag, and informal channels like SMS or WhatsApp.
+
+Key Contributions:
+- Built and maintained the React Native iOS and Android applications used by clinicians at the point of care
+- Developed the React web companion used by administrative and desktop hospital staff
+- Implemented secure clinical photography, on-duty directory, automated escalations, and result notifications
+- Worked on integrations with hospital PAS, EMR, pathology, radiology, paging systems, and Active Directory
+- Helped deliver end-to-end encryption, audit trails, and 24/7 SLA-ready redundant infrastructure
+`,
+      challenges: `Healthcare environments demand extremely high reliability, security, and usability. Clinicians are time-poor and often interrupted, so every interaction had to be fast and unambiguous. We also had to satisfy strict patient-privacy and medico-legal requirements while integrating with a wide range of legacy hospital systems.`,
+      role: "Senior Full Stack / Mobile Developer",
+      linkPreview: "https://medtasker.com/",
+      linkAppStore: "https://apps.apple.com/au/app/medtasker/id1626021847",
+      linkGooglePlay:
+        "https://play.google.com/store/apps/details?id=com.medtasker.medtaskermobile&hl=en_AU",
+      image: "/medtasker/medtasker-hero.jpg",
+      tech: [
+        "React Native",
+        "React",
+        "TypeScript",
+        "Node.js",
+        "iOS",
+        "Android",
+        "Healthcare Integrations",
+        "Active Directory",
+        "End-to-End Encryption",
+        "Audit Logging",
+      ],
+      screenshots: [
+        {
+          url: "/medtasker/medtasker-mobile-home.png",
+          alt: "MedTasker mobile app home screen",
+          caption: "Home screen showing inbox, team tasks, and quick actions",
+        },
+        {
+          url: "/medtasker/medtasker-gallery-1.webp",
+          alt: "MedTasker task list",
+          caption:
+            "All clinical tasks in one place with priority and status cues",
+        },
+        {
+          url: "/medtasker/medtasker-gallery-2.webp",
+          alt: "MedTasker task detail",
+          caption:
+            "Task detail view with recipients, messages, and history tabs",
+        },
+      ],
+      implementationDetails: {
+        features: [
+          "On-duty directory and smart routing",
+          "Secure clinical photography",
+          "Automated escalations",
+          "Mobile task management",
+          "Result notifications",
+          "Real-time workload insights and reporting",
+        ],
+        security: {
+          features: [
+            "End-to-end encrypted communications",
+            "Full audit trail of tasks and escalations",
+            "Privacy-compliant clinical photography",
+            "Integration with hospital identity systems",
+          ],
+        },
+      },
+    },
+    {
+      name: "Impacta.red - Activity Marketplace",
+      slug: "impacta-red",
+      summary:
+        "Shopify-powered marketplace built with Next.js and React for discovering and booking in-person workshops and experiences across Chile.",
+      longSummary: `Impacta.red is a Chilean marketplace that connects people with curated, in-person activities and workshops led by verified experts. From ceramics and analog photography to cooking, music, and wellness, the platform makes it easy to explore, filter, book, and gift experiences.
+
+Key Contributions:
+- Built the frontend experience with Next.js, React, and TypeScript
+- Integrated Shopify for product catalog, checkout, and gift-card flows
+- Implemented dynamic filtering, search, and category browsing
+- Delivered a responsive, performance-focused UI for mobile and desktop users
+- Collaborated on content strategy and conversion-focused landing pages
+`,
+      challenges: `The platform had to balance rich discovery (dozens of categories, price ranges, and locations) with fast page loads and a smooth checkout. We also needed a flexible content architecture so the marketing team could launch campaigns and seasonal experiences without developer support.`,
+      role: "Frontend Developer",
+      linkPreview: "https://impacta.red/homepage",
+      image: "/impacta/impacta-hero.png",
+      tech: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Shopify",
+        "Tailwind CSS",
+        "Headless CMS",
+        "Vercel",
+      ],
+      implementationDetails: {
+        commerce: {
+          features: [
+            "Shopify headless checkout",
+            "Gift-card and experience products",
+            "Dynamic product filtering",
+          ],
+        },
+        performance: {
+          features: [
+            "SSR/SSG for fast landing pages",
+            "Responsive image handling",
+            "Mobile-first UX",
+          ],
+        },
+      },
+    },
     {
       name: "Nura - System Backend Upgrade and React Storefront",
       slug: "nura",
@@ -213,17 +335,20 @@ Key Contributions:
         {
           url: "/mindset-health/nerva-1.webp",
           alt: "Nerva App - Hypnotherapy Session",
-          caption: "Main hypnotherapy session interface with progress tracking and audio controls",
+          caption:
+            "Main hypnotherapy session interface with progress tracking and audio controls",
         },
         {
           url: "/mindset-health/finito-1.webp",
           alt: "Finito App - Program Overview",
-          caption: "Program overview showing session progress and therapeutic content",
+          caption:
+            "Program overview showing session progress and therapeutic content",
         },
         {
           url: "/mindset-health/evia-1.webp",
           alt: "Evia App - Program Overview",
-          caption: "Program overview showing session progress and therapeutic content",
+          caption:
+            "Program overview showing session progress and therapeutic content",
         },
       ],
     },
@@ -300,7 +425,8 @@ Key Contributions:
         {
           url: "/goodonyou-mobile/goodonyou-mobile-1.png",
           alt: "Good on You Mobile App - Home Screen",
-          caption: "Main interface showcasing ethical brand ratings and featured content",
+          caption:
+            "Main interface showcasing ethical brand ratings and featured content",
         },
         {
           url: "/goodonyou-mobile/goodonyou-mobile-2.webp",
@@ -310,12 +436,14 @@ Key Contributions:
         {
           url: "/goodonyou-mobile/goodonyou-mobile-3.webp",
           alt: "Good on You Mobile App - Brand Details",
-          caption: "Detailed brand information with ethical ratings and sustainability metrics",
+          caption:
+            "Detailed brand information with ethical ratings and sustainability metrics",
         },
         {
           url: "/goodonyou-mobile/goodonyou-mobile-4.webp",
           alt: "Good on You Mobile App - Collections",
-          caption: "Personal collections and saved items for sustainable shopping",
+          caption:
+            "Personal collections and saved items for sustainable shopping",
         },
       ],
       implementationDetails: {
@@ -367,12 +495,14 @@ Key Contributions:
         {
           url: "/goodonyou-website/goodonyou-directory-1.png",
           alt: "Good on You Website - Brand Directory",
-          caption: "Main brand directory interface with search and filtering capabilities",
+          caption:
+            "Main brand directory interface with search and filtering capabilities",
         },
         {
           url: "/goodonyou-website/goodonyou-directory-3.png",
           alt: "Good on You Website - Search Results",
-          caption: "Advanced search results with filtering options and brand comparisons",
+          caption:
+            "Advanced search results with filtering options and brand comparisons",
         },
       ],
       implementationDetails: {
@@ -430,10 +560,39 @@ Key Contributions:
         ],
       },
     },
+
+    {
+      name: "Oodle Labs - Agency Website",
+      slug: "oodle-labs",
+      summary:
+        "Astro and React marketing site for Oodle Labs, a boutique software studio, showcasing services, work, and project inquiry flows.",
+      longSummary: `Oodle Labs is a boutique software development studio. Their website serves as the primary marketing presence, explaining services, highlighting selected work, and guiding prospective clients toward project inquiries.
+
+Key Contributions:
+- Built the site with Astro for fast, static delivery and React islands for interactive components
+- Implemented responsive layouts, smooth animations, and polished visual details
+- Created a clean information architecture for services, work, about, and contact sections
+- Optimized for Core Web Vitals and SEO
+`,
+      challenges: `As a studio site, the design needed to feel distinctive and trustworthy while remaining fast and accessible. We focused on keeping the bundle small, animations subtle, and the inquiry flow frictionless.`,
+      role: "Frontend Developer",
+      linkPreview: "https://oodle-labs.dev/",
+      image: "/oodle-labs/oodle-labs-hero.png",
+      tech: ["Astro", "React", "TypeScript", "Tailwind CSS", "MDX", "Vercel"],
+      implementationDetails: {
+        performance: {
+          features: [
+            "Static site generation with Astro",
+            "Partial hydration via React islands",
+            "Optimized images and Core Web Vitals",
+          ],
+        },
+      },
+    },
   ],
   about: {
     description: `
-      Senior Software Developer at Ackama with 10+ years building scalable applications. I specialize in React, TypeScript, Ruby on Rails, and AWS cloud infrastructure.
+      Senior Software Developer with 10+ years building scalable applications. I specialize in React, TypeScript, Ruby on Rails, and AWS cloud infrastructure.
       When I'm not coding, you'll find me playing board games, singing in choirs, playing with my two kids or hanging out with my dog Balu.
     `,
     image: "/profilepic.jpg",
