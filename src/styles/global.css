@@ -5,7 +5,7 @@
   --surface-from: #1c232d;  /* surface gradient from */
   --surface-to: #0f1419;    /* surface gradient to */
   --fg: #e2e8f0;            /* main foreground text */
-  --muted: #94a3b8;         /* secondary text */
+  --muted: #cbd5e1;         /* secondary text */
   --border: rgba(148,163,184,0.2);
 }
 
@@ -91,7 +91,7 @@
   --surface-from: #1c232d;  /* surface gradient */
   --surface-to: #0f1419;
   --fg: #e2e8f0;            /* foreground text */
-  --muted: #94a3b8;         /* secondary text */
+  --muted: #cbd5e1;         /* secondary text */
   --border: rgba(148,163,184,0.2);
 }
 
@@ -115,3 +115,8 @@
   background-image: linear-gradient(135deg, color-mix(in oklab, var(--surface-from) 90%, transparent), color-mix(in oklab, var(--surface-to) 90%, transparent));
   background-color: var(--surface-from);
 }
+
+/* === Dark-theme text contrast boost === */
+[data-theme='dark'] .text-gray-300 { color: #e2e8f0; }
+[data-theme='dark'] .text-gray-400 { color: #cbd5e1; }
+[data-theme='dark'] .text-gray-500 { color: #94a3b8; }
