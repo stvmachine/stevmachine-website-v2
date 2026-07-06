@@ -589,6 +589,117 @@ Key Contributions:
         },
       },
     },
+    {
+      name: "EthicalJobs - Mission-Driven Job Board",
+      slug: "ethical-jobs",
+      summary:
+        "Homepage and admin system updates for EthicalJobs.com.au, Australia's leading job board for not-for-profit and community sector roles.",
+      longSummary: `EthicalJobs is an Australian job board connecting job seekers with meaningful work in not-for-profit, community services, social justice, and environmental sectors. The platform helps values-aligned candidates discover roles at organizations making a positive impact.
+
+Key Contributions:
+- Updated the homepage built with React and GraphQL
+- Updated the admin system and databases using Django, HTML, and PostgreSQL
+- Collaborated with the team via Aclama to deliver improvements on a tight timeline
+`,
+      challenges: `The platform serves a niche but passionate audience — people seeking mission-driven work. The homepage needed to surface relevant opportunities quickly while maintaining the site's community-focused identity.`,
+      role: "Full Stack Developer",
+      linkPreview: "https://www.ethicaljobs.com.au/",
+      image: "/ethical-jobs/ethical-jobs-hero.png",
+      imageFocalPoint: "bottom",
+      tech: ["React", "GraphQL", "Django", "PostgreSQL", "HTML"],
+    },
+    {
+      name: "Aesop - Customer Service Help Center",
+      slug: "aesop-help-center",
+      summary:
+        "Custom React-based Zendesk Help Center for Aesop's Australian market, translating the brand's minimalist aesthetic into a customer-service experience.",
+      longSummary: `Aesop's customer service help center provides self-service support for the Australian market, covering product advice, orders and delivery, gift services, payments, and sustainability. Built on Zendesk with a custom React layer, the help center extends Aesop's signature minimalist brand into the support experience.
+
+Key Contributions:
+- Built a custom React frontend layered on Zendesk Help Center
+- Collaborated with a designer in a traditional designer-developer workflow
+- Implemented topic-based category navigation, prompt-action quick links, and FAQ structure
+- Integrated with Zendesk's article and search infrastructure
+- Maintained Aesop's editorial typography, bottle motif branding, and B Corp messaging
+`,
+      challenges: `Zendesk Help Center themes are constrained by the platform's templating system. Layering React on top required careful integration to keep the brand's premium, editorial feel while working within Zendesk's content structure and article routing.`,
+      role: "Frontend Developer",
+      linkPreview: "https://au.assistance.aesop.com/hc/en-au",
+      image: "/aesop-help-center/aesop-help-center-3.png",
+      imageFocalPoint: "top",
+      tech: ["React", "Zendesk", "TypeScript"],
+      screenshots: [
+        {
+          url: "/aesop-help-center/aesop-help-center-3.png",
+          alt: "Aesop Customer Service homepage with decorative bottle-pattern header, 'How can we help you?' prompt, topic navigation, and quick-action cards for contact, delivery, tracking, and returns",
+          caption:
+            "Help center homepage with Aesop's signature bottle-pattern header and prompt-action quick links",
+        },
+        {
+          url: "/aesop-help-center/aesop-help-center-2.png",
+          alt: "Aesop 'Orders and delivery' category page with pink header and expandable FAQ accordion alongside the persistent topic navigation sidebar",
+          caption:
+            "Category page with expandable FAQ accordion for shipping and returns questions",
+        },
+        {
+          url: "/aesop-help-center/aesop-help-center-1.png",
+          alt: "Aesop help article page under 'Payment and My Account' explaining international credit card payments, with sidebar topic navigation and article feedback buttons",
+          caption:
+            "Article page with topic sidebar and 'Was this article helpful?' feedback buttons",
+        },
+      ],
+    },
+    {
+      name: "MyNous - Livestock Buyer Portal",
+      slug: "mynous",
+      summary:
+        "Buyer-facing customer portal for the Australian livestock industry, giving meat processors and agents real-time visibility into purchases, weights, prices, and EID data from any device at the saleyard.",
+      longSummary: `MyNous is a buyer portal built by AgriNous for the Australian livestock industry. It gives buyers and their teams 24/7 access to real-time purchase data — reports, averages, prices, weights, and EID device data — all from any device, at the saleyard or in the office.
+
+The portal respects real-world saleyard workflows, marking data as provisional until confirmed by the agent or saleyard. Active since 2018, MyNous is used by meat processing companies and agents buying on behalf of producer clients.
+`,
+      challenges: `The portal needed to work reliably on mobile devices in rural saleyard environments, while presenting complex agricultural data (weights, prices, EIDs, provisional vs. confirmed status) in a way that's fast and unambiguous for buyers on the move.`,
+      linkPreview: "https://www.agrinous.com.au/mynous",
+      image: "/mynous/mynous-hero.png",
+      imageFocalPoint: "top",
+      tech: ["Responsive Web", "Real-time Data", "Agricultural Tech"],
+    },
+    {
+      name: "Tugeda Space - Education Space Matching",
+      slug: "tugeda-space",
+      summary:
+        "Platform connecting unused spaces with teams running education across the Pacific, originally built around the idea that 'every building is a classroom.'",
+      longSummary: `Tugeda is a platform that connects unused spaces with teams trying to run education across the Pacific. Originally conceived as "Every building is a classroom," the tool makes it easier to find and book spaces for educational programs in communities that need them.
+
+Key Contributions:
+- Actively participated on the frontend part of Tugeda.space
+- Built with React, TypeScript, Next.js, Redux, Storybook, and AWS
+- Collaborated via Ackama
+`,
+      role: "Frontend Developer",
+      image: "/tugeda-space/tugeda-space-1.png",
+      tech: ["React", "TypeScript", "Next.js", "Redux", "Storybook", "AWS"],
+      screenshots: [
+        {
+          url: "/tugeda-space/tugeda-space-1.png",
+          alt: "Tugeda community engagement page on a teal background asking how visitors can help connect Solomon Islanders with education, with six action cards",
+          caption:
+            "Community engagement page offering six ways to participate — list a building, suggest spaces, or advertise services",
+        },
+        {
+          url: "/tugeda-space/tugeda-space-2.png",
+          alt: "Tugeda marketing landing page with 'Every building can be a place to learn' headline and a browser mockup previewing the search interface and map",
+          caption:
+            "Marketing landing page introducing the platform with the tagline 'Every building can be a place to learn'",
+        },
+        {
+          url: "/tugeda-space/tugeda-space-3.png",
+          alt: "Tugeda web app split-pane search results: building cards with photos, capacity, and amenity badges on the left, interactive map of the Solomon Islands on the right",
+          caption:
+            "Split-pane search results showing available buildings with photos, capacity, and amenity badges alongside an interactive map of the Solomon Islands",
+        },
+      ],
+    },
   ],
   about: {
     description: `

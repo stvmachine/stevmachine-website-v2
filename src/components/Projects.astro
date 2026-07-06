@@ -33,6 +33,7 @@ const { projects } = Astro.props;
             linkAppStore,
             slug,
             tech = [],
+            imageFocalPoint = "center",
           }) => (
             <article class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10">
               {/* Project Image */}
@@ -40,7 +41,7 @@ const { projects } = Astro.props;
                 {slug ? (
                   <a href={`/projects/${slug}`} aria-label={`${name} details`}>
                     <Image
-                      class="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                      class={`h-full w-full object-cover object-${imageFocalPoint} transition-transform duration-500 group-hover:scale-110`}
                       src={image}
                       alt={name}
                       width="600"

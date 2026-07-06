@@ -51,6 +51,7 @@ export interface ProjectProps {
   linkAppStore?: string;
   slug?: string;
   tech?: string[];
+  imageFocalPoint?: "top" | "center" | "bottom";
 }
 
 export interface AboutProps {
