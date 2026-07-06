@@ -198,6 +198,18 @@ Key Contributions:
       role: "Frontend Developer",
       linkPreview: "https://impacta.red/homepage",
       image: "/impacta/impacta-hero.png",
+      screenshots: [
+        {
+          url: "/impacta/impacta-gallery-1.png",
+          alt: "Impacta.red activity detail page",
+          caption: "Workshop detail page with booking options and session selector",
+        },
+        {
+          url: "/impacta/impacta-gallery-2.png",
+          alt: "Impacta.red gift card promotion",
+          caption: "Gift card promotional modal highlighting experience gifts",
+        },
+      ],
       tech: [
         "Next.js",
         "React",
