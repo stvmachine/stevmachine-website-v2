@@ -21,7 +21,81 @@ const { projects } = Astro.props;
       </p>
     </div>
 
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Category Filter Bar -->
+    <div
+      class="mb-12 flex flex-wrap justify-center gap-3"
+      role="group"
+      aria-label="Filter projects by category"
+      id="project-filters"
+    >
+      <button
+        type="button"
+        data-filter="all"
+        aria-pressed="true"
+        class="filter-btn active inline-flex items-center gap-2 rounded-full border border-transparent bg-gradient-to-r from-pink-500 to-purple-600 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-pink-500/25"
+      >
+        All
+      </button>
+      <button
+        type="button"
+        data-filter="web"
+        aria-pressed="false"
+        class="filter-btn inline-flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-5 py-2.5 text-sm font-medium text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-white"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        Web
+      </button>
+      <button
+        type="button"
+        data-filter="mobile"
+        aria-pressed="false"
+        class="filter-btn inline-flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-5 py-2.5 text-sm font-medium text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-white"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        Mobile
+      </button>
+      <button
+        type="button"
+        data-filter="system"
+        aria-pressed="false"
+        class="filter-btn inline-flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900/50 px-5 py-2.5 text-sm font-medium text-gray-300 transition-all duration-300 hover:border-purple-500/50 hover:text-white"
+      >
+        <svg
+          class="h-4 w-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <rect x="2" y="2" width="20" height="8" rx="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+          <line x1="6" y1="18" x2="6.01" y2="18"></line>
+        </svg>
+        System
+      </button>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3" id="projects-grid">
       {
         projects.map(
           ({
@@ -32,10 +106,14 @@ const { projects } = Astro.props;
             linkGooglePlay,
             linkAppStore,
             slug,
+            categories = [],
             tech = [],
             imageFocalPoint = "center",
           }) => (
-            <article class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10">
+            <article
+              data-categories={categories.join(",")}
+              class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-700 bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl transition-all duration-300 hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/10"
+            >
               {/* Project Image */}
               <div class="relative h-48 overflow-hidden">
                 {slug ? (
@@ -88,10 +166,39 @@ const { projects } = Astro.props;
                     {name}
                   </h3>
 
+                  {/* Category Tags */}
+                  {categories.length > 0 && (
+                    <div class="flex flex-wrap gap-x-3 gap-y-1">
+                      {categories.map((category: "web" | "mobile" | "system") => {
+                        const dotColors = {
+                          web: "bg-sky-400",
+                          mobile: "bg-emerald-400",
+                          system: "bg-purple-400",
+                        };
+                        const labels = {
+                          web: "Web",
+                          mobile: "Mobile",
+                          system: "System",
+                        };
+                        return (
+                          <span class="inline-flex items-center gap-1.5 text-xs text-gray-400">
+                            <span
+                              class={`h-1.5 w-1.5 rounded-full ${dotColors[category]}`}
+                              aria-hidden="true"
+                            />
+                            {labels[category]}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
+
                   <p class="line-clamp-4 text-sm leading-relaxed text-gray-300">
                     {summary}
                   </p>
                 </div>
+
+                <div class="mt-4 border-t border-gray-700/50" />
 
                 {/* Action Buttons - Always at bottom */}
                 <div class="mt-auto flex flex-wrap gap-3 pt-4">
@@ -197,6 +304,14 @@ const { projects } = Astro.props;
           ),
         )
       }
+
+      <!-- Empty state -->
+      <div
+        id="projects-empty-state"
+        class="col-span-full hidden py-12 text-center"
+      >
+        <p class="text-lg text-gray-400">No projects in this category yet.</p>
+      </div>
     </div>
 
     <!-- Explore Projects Message -->
@@ -207,3 +322,79 @@ const { projects } = Astro.props;
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const filterBar = document.getElementById("project-filters");
+    const cards = document.querySelectorAll("#projects-grid [data-categories]");
+    const emptyState = document.getElementById("projects-empty-state");
+
+    if (!filterBar || cards.length === 0) return;
+
+    filterBar.addEventListener("click", function (event) {
+      const button = event.target.closest("button[data-filter]");
+      if (!button) return;
+
+      const filter = button.dataset.filter;
+      const isActive = button.classList.contains("active");
+
+      // Clicking the active filter or "All" resets to showing all projects
+      if (isActive || filter === "all") {
+        applyFilter("all");
+        return;
+      }
+
+      applyFilter(filter);
+    });
+
+    function applyFilter(filter) {
+      const buttons = filterBar.querySelectorAll("button[data-filter]");
+
+      buttons.forEach((btn) => {
+        const active = btn.dataset.filter === filter;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", String(active));
+
+        if (active) {
+          btn.classList.remove(
+            "border-gray-700",
+            "bg-gray-900/50",
+            "text-gray-300"
+          );
+          btn.classList.add(
+            "border-transparent",
+            "bg-gradient-to-r",
+            "from-pink-500",
+            "to-purple-600",
+            "text-white"
+          );
+        } else {
+          btn.classList.remove(
+            "border-transparent",
+            "bg-gradient-to-r",
+            "from-pink-500",
+            "to-purple-600",
+            "text-white"
+          );
+          btn.classList.add(
+            "border-gray-700",
+            "bg-gray-900/50",
+            "text-gray-300"
+          );
+        }
+      });
+
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const categories = (card.dataset.categories || "").split(",").filter(Boolean);
+        const visible = filter === "all" || categories.includes(filter);
+        card.style.display = visible ? "flex" : "none";
+        if (visible) visibleCount++;
+      });
+
+      if (emptyState) {
+        emptyState.classList.toggle("hidden", visibleCount > 0);
+      }
+    }
+  })();
+</script>

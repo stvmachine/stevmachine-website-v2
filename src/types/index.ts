@@ -36,6 +36,8 @@ export interface ProjectImage {
   caption?: string;
 }
 
+export type ProjectCategory = "web" | "mobile" | "system";
+
 export interface ProjectProps {
   name: string;
   summary: string;
@@ -51,6 +53,7 @@ export interface ProjectProps {
   linkAppStore?: string;
   slug?: string;
   tech?: string[];
+  categories?: ProjectCategory[];
   imageFocalPoint?: "top" | "center" | "bottom";
 }
 

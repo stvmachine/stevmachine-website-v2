@@ -130,6 +130,7 @@ Key Contributions:
       linkGooglePlay:
         "https://play.google.com/store/apps/details?id=com.medtasker.medtaskermobile&hl=en_AU",
       image: "/medtasker/medtasker-hero.jpg",
+      categories: ["mobile", "web"],
       tech: [
         "React Native",
         "React",
@@ -198,6 +199,7 @@ Key Contributions:
       role: "Frontend Developer",
       linkPreview: "https://impacta.red/homepage",
       image: "/impacta/impacta-hero.png",
+      categories: ["web"],
       screenshots: [
         {
           url: "/impacta/impacta-gallery-1.png",
@@ -254,6 +256,7 @@ Key Contributions:
       role: "Senior Full Stack Developer",
       linkPreview: "https://www.nurasound.com/",
       image: "/nura/nura-homepage.png",
+      categories: ["web", "system"],
       tech: [
         "React 18",
         "TypeScript",
@@ -333,6 +336,7 @@ Key Contributions:
       linkGooglePlay:
         "https://apps.apple.com/au/app/nerva-ibs-gut-hypnotherapy/id1467398796",
       image: "/mindset-health/mindset-health.jpg",
+      categories: ["mobile"],
       tech: [
         "React Native",
         "TypeScript",
@@ -383,6 +387,7 @@ Key Contributions:
       role: "Frontend Developer",
       linkPreview: "https://www.vicsuper.com.au/forms-and-resources/mobile-app",
       image: "/vicsuper-mobile-app.png",
+      categories: ["mobile"],
       tech: ["Ionic", "Angular", "TypeScript", "Node.js", "Jest", "Detox"],
       implementationDetails: {
         security: {
@@ -421,6 +426,7 @@ Key Contributions:
       linkAppStore:
         "https://apps.apple.com/us/app/good-on-you-ethical-ratings/id1044017998",
       image: "/goodonyou-mobile/goodonyou-hero-slug.png",
+      categories: ["mobile"],
       tech: [
         "React Native",
         "TypeScript",
@@ -494,6 +500,7 @@ Key Contributions:
       role: "Frontend Tech Lead",
       linkPreview: "https://directory.goodonyou.eco/",
       image: "/goodonyou-website/goodonyou-directory-1.png",
+      categories: ["web"],
       tech: [
         "React",
         "TypeScript",
@@ -549,6 +556,7 @@ Key Contributions:
         "https://play.google.com/store/apps/details?id=cl.bancochile.mi_banco",
       linkAppStore: "https://apps.apple.com/cl/app/mi-banco-chile/id1516872542",
       image: "/bancodechile/bancodechile-mobile-1.webp",
+      categories: ["mobile"],
       tech: [
         "Ionic",
         "Angular",
@@ -590,6 +598,7 @@ Key Contributions:
       role: "Frontend Developer",
       linkPreview: "https://oodle-labs.dev/",
       image: "/oodle-labs/oodle-labs-hero.png",
+      categories: ["web"],
       tech: ["Astro", "React", "TypeScript", "Tailwind CSS", "MDX", "Vercel"],
       implementationDetails: {
         performance: {
@@ -618,6 +627,7 @@ Key Contributions:
       linkPreview: "https://www.ethicaljobs.com.au/",
       image: "/ethical-jobs/ethical-jobs-hero.png",
       imageFocalPoint: "bottom",
+      categories: ["web", "system"],
       tech: ["React", "GraphQL", "Django", "PostgreSQL", "HTML"],
     },
     {
@@ -639,6 +649,7 @@ Key Contributions:
       linkPreview: "https://au.assistance.aesop.com/hc/en-au",
       image: "/aesop-help-center/aesop-help-center-3.png",
       imageFocalPoint: "top",
+      categories: ["web"],
       tech: ["React", "Zendesk", "TypeScript"],
       screenshots: [
         {
@@ -674,6 +685,7 @@ The portal respects real-world saleyard workflows, marking data as provisional u
       linkPreview: "https://www.agrinous.com.au/mynous",
       image: "/mynous/mynous-hero.png",
       imageFocalPoint: "top",
+      categories: ["web"],
       tech: ["Responsive Web", "Real-time Data", "Agricultural Tech"],
     },
     {
@@ -690,6 +702,7 @@ Key Contributions:
 `,
       role: "Frontend Developer",
       image: "/tugeda-space/tugeda-space-1.png",
+      categories: ["web"],
       tech: ["React", "TypeScript", "Next.js", "Redux", "Storybook", "AWS"],
       screenshots: [
         {
