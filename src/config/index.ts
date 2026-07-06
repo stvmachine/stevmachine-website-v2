@@ -149,16 +149,16 @@ Key Contributions:
           caption: "Home screen showing inbox, team tasks, and quick actions",
         },
         {
-          url: "/medtasker/medtasker-gallery-1.webp",
-          alt: "MedTasker task list",
+          url: "/medtasker/medtasker-gallery-1.png",
+          alt: "MedTasker desktop task composer",
           caption:
-            "All clinical tasks in one place with priority and status cues",
+            "Composing a clinical task on the web app with patient context",
         },
         {
-          url: "/medtasker/medtasker-gallery-2.webp",
+          url: "/medtasker/medtasker-gallery-2.png",
           alt: "MedTasker task detail",
           caption:
-            "Task detail view with recipients, messages, and history tabs",
+            "Task detail view with recipient status and message thread",
         },
       ],
       implementationDetails: {
