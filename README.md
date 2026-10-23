@@ -2,7 +2,7 @@
 
 Welcome to my personal portfolio website, built with Astro and TailwindCSS. This modern, responsive site showcases my work, experience, and skills as a software developer.
 
-[![Portfolio Screenshot](https://via.placeholder.com/1200x630/1e1e2e/ffffff?text=Esteban+Campos+Portfolio)](https://stevmachine.dev)
+<img width="1511" height="855" alt="Screenshot 2026-10-23 at 10 33 20 pm" src="https://github.com/user-attachments/assets/d5fc7a82-f18e-4eef-b06c-76da00e9168d" />
 
 ## 🚀 Features
 
